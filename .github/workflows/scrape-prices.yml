@@ -18,13 +18,13 @@ jobs:
         with:
           python-version: '3.11'
       
-      - name: Install dependencies
-        run: pip install -r scraper/requirements.txt
+      - name: Install
+        run: pip install requests beautifulsoup4
       
-      - name: Run scraper
-        run: cd scraper && python scrape.py
+      - name: Run
+        run: python scraper/scrape.py
       
-      - name: Commit changes
+      - name: Commit
         run: |
           git config user.email "bot@github.com"
           git config user.name "Bot"
