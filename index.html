@@ -3,34 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Ariana Cars | اپلیکیشن قیمت خودرو</title>
+<title>قیمت روز خودرو ایران | Ariana Cars</title>
+<meta name="description" content="قیمت لحظه‌ای و روز خودروهای ایران خودرو، سایپا، کرمان موتور، پارس خودرو و مدیران خودرو. مشاهده قیمت بازار و کارخانه با به‌روزرسانی خودکار از باما.">
+<meta name="keywords" content="قیمت خودرو, قیمت ماشین, قیمت ایران خودرو, قیمت سایپا, قیمت پژو 207, قیمت تارا, قیمت شاهین, قیمت کوییک">
+<meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="X-PsI39RMhgJ5R1p9vumr9sUwUoMO7BFMbKGJXVc204" />
+<link rel="canonical" href="https://arianasaite.github.io/ariana_cars/">
+
+<meta property="og:title" content="قیمت روز خودرو ایران | Ariana Cars">
+<meta property="og:description" content="قیمت لحظه‌ای خودروهای ایران خودرو و سایپا">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arianasaite.github.io/ariana_cars/">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ariana Cars",
+    "url": "https://arianasaite.github.io/ariana_cars/",
+    "description": "قیمت روز خودروهای ایران",
+    "inLanguage": "fa-IR"
+}
+</script>
+
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 <style>
+    :root {
+        --bg-main: #05070c;
+        --bg-card-start: rgba(24,23,21,0.95);
+        --bg-card-end: rgba(9,11,17,0.92);
+        --bg-card-hover: rgba(34, 30, 25, 0.98);
+        --bg-input: rgba(24,23,21,0.9);
+        --bg-header: rgba(6,8,13,0.85);
+        --bg-bottom-nav: rgba(6, 8, 13, 0.95);
+        --bg-modal: linear-gradient(145deg, rgba(24,23,21,0.98), rgba(9,11,17,0.98));
+        --bg-overlay: rgba(0, 0, 0, 0.85);
+        --bg-subtle: rgba(255, 255, 255, 0.03);
+        --bg-icon-btn: rgba(212, 175, 55, 0.08);
+        --text-primary: #f3efe5;
+        --text-secondary: #c8c4ba;
+        --text-muted: #8a8378;
+        --text-desc: #6a655c;
+        --gold: #d4af37;
+        --green: #7fc99a;
+        --border-gold: rgba(212, 175, 55, 0.2);
+        --border-gold-strong: rgba(212, 175, 55, 0.4);
+        --border-subtle: rgba(212, 175, 55, 0.15);
+        --shadow-card: 0 8px 30px rgba(0,0,0,0.3);
+        --bg-gradient-app: #05070c;
+        --bg-gradient-splash: linear-gradient(135deg, #0a0d1a 0%, #1a1208 50%, #05070c 100%);
+    }
+
+    body.light {
+        --bg-main: #f5efe0;
+        --bg-card-start: rgba(255, 252, 245, 0.98);
+        --bg-card-end: rgba(245, 240, 228, 0.95);
+        --bg-card-hover: rgba(255, 250, 235, 1);
+        --bg-input: rgba(255, 252, 245, 0.95);
+        --bg-header: rgba(250, 245, 232, 0.9);
+        --bg-bottom-nav: rgba(250, 245, 232, 0.96);
+        --bg-modal: linear-gradient(145deg, rgba(255, 252, 245, 1), rgba(245, 240, 228, 0.98));
+        --bg-overlay: rgba(30, 25, 15, 0.6);
+        --bg-subtle: rgba(0, 0, 0, 0.03);
+        --bg-icon-btn: rgba(184, 134, 11, 0.1);
+        --text-primary: #1a1208;
+        --text-secondary: #3d3528;
+        --text-muted: #7a6f5c;
+        --text-desc: #8a8378;
+        --gold: #b8860b;
+        --green: #27ae60;
+        --border-gold: rgba(184, 134, 11, 0.3);
+        --border-gold-strong: rgba(184, 134, 11, 0.5);
+        --border-subtle: rgba(184, 134, 11, 0.2);
+        --shadow-card: 0 8px 30px rgba(184, 134, 11, 0.12);
+        --bg-gradient-app: #f5efe0;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
     body {
         font-family: Vazirmatn, Tahoma, sans-serif;
-        background: #05070c;
-        color: #f3efe5;
+        background: var(--bg-main);
+        color: var(--text-primary);
         direction: rtl;
         min-height: 100vh;
         overflow-x: hidden;
         font-weight: 300;
         -webkit-font-smoothing: antialiased;
-        overscroll-behavior: none;
         user-select: none;
+        transition: background-color 0.4s ease, color 0.4s ease;
     }
 
-    /* ===== SPLASH SCREEN ===== */
     .splash {
-        position: fixed;
-        inset: 0;
-        background: linear-gradient(135deg, #0a0d1a 0%, #1a1208 50%, #05070c 100%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        position: fixed; inset: 0;
+        background: var(--bg-gradient-splash);
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
         z-index: 9999;
         transition: opacity 0.6s ease, visibility 0.6s ease;
     }
@@ -48,35 +116,21 @@
         margin-bottom: 20px;
     }
     @keyframes splashPulse {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
-        50% { transform: scale(1.08); box-shadow: 0 0 60px rgba(212, 175, 55, 0.9); }
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
     }
-    .splash-title {
-        font-size: 24px;
-        color: #d4af37;
-        letter-spacing: 3px;
-        font-weight: 400;
-        margin-bottom: 8px;
-    }
-    .splash-subtitle {
-        font-size: 12px;
-        color: #8a8378;
-        letter-spacing: 2px;
-    }
+    .splash-title { font-size: 24px; color: #d4af37; letter-spacing: 3px; margin-bottom: 8px; }
+    .splash-subtitle { font-size: 12px; color: #8a8378; letter-spacing: 2px; }
     .splash-loader {
-        position: absolute;
-        bottom: 60px;
+        position: absolute; bottom: 60px;
         width: 40px; height: 3px;
         background: rgba(212, 175, 55, 0.15);
-        border-radius: 2px;
-        overflow: hidden;
+        border-radius: 2px; overflow: hidden;
     }
     .splash-loader::after {
-        content: "";
-        display: block;
+        content: ""; display: block;
         width: 40%; height: 100%;
-        background: #d4af37;
-        border-radius: 2px;
+        background: #d4af37; border-radius: 2px;
         animation: loaderAnim 1.5s ease-in-out infinite;
     }
     @keyframes loaderAnim {
@@ -84,703 +138,390 @@
         100% { transform: translateX(350%); }
     }
 
-    /* ===== APP CONTAINER ===== */
     .app {
         max-width: 500px;
         margin: 0 auto;
         min-height: 100vh;
         padding-bottom: 80px;
         position: relative;
-        background: #05070c;
-        box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        background: var(--bg-gradient-app);
+        box-shadow: 0 0 60px rgba(0,0,0,0.5);
     }
 
-    /* ===== BACKGROUND ===== */
     .bg-glow {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        max-width: 500px;
-        margin: 0 auto;
-        overflow: hidden;
+        position: fixed; inset: 0;
+        z-index: 0; pointer-events: none;
+        max-width: 500px; margin: 0 auto; overflow: hidden;
     }
     .bg-glow::before {
         content: "";
         position: absolute;
-        top: -20%; left: 50%;
+        top: -15%; left: 50%;
+        transform: translateX(-50%);
+        width: 500px; height: 500px;
+        background: radial-gradient(circle,
+            rgba(139, 90, 43, 0.4) 0%,
+            rgba(101, 67, 33, 0.28) 30%,
+            transparent 75%);
+        filter: blur(60px);
+        animation: brownPulse 5s ease-in-out infinite;
+    }
+    .bg-glow::after {
+        content: "";
+        position: absolute;
+        top: 35%; left: 50%;
         transform: translateX(-50%);
         width: 400px; height: 400px;
-        background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
-        filter: blur(40px);
-        animation: bgPulse 6s ease-in-out infinite;
+        background: radial-gradient(circle,
+            rgba(184, 134, 11, 0.18) 0%,
+            transparent 70%);
+        filter: blur(50px);
+        animation: brownPulse2 7s ease-in-out infinite;
     }
-    @keyframes bgPulse {
-        0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-        50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+    @keyframes brownPulse {
+        0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+        50% { transform: translateX(-50%) scale(1.35); opacity: 1; }
+    }
+    @keyframes brownPulse2 {
+        0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+        50% { transform: translateX(-50%) scale(1.45); opacity: 0.95; }
     }
 
-    /* ===== APP HEADER ===== */
     .app-header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(6,8,13,0.85);
+        position: sticky; top: 0; z-index: 50;
+        background: var(--bg-header);
         backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        border-bottom: 1px solid var(--border-subtle);
         padding: 14px 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: flex; align-items: center; justify-content: space-between;
     }
-    .app-logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+    .app-logo { display: flex; align-items: center; gap: 10px; }
     .app-logo-icon {
         width: 36px; height: 36px;
         border-radius: 50%;
-        border: 1.5px solid #d4af37;
+        border: 1.5px solid var(--gold);
         background: linear-gradient(135deg, #1a1208, #3d2817);
         display: flex; align-items: center; justify-content: center;
         font-size: 17px; font-weight: bold; color: #d4af37;
         font-family: Georgia, serif;
-        box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
     }
-    .app-logo-text {
-        font-size: 16px;
-        font-weight: 500;
-        color: #d4af37;
-        letter-spacing: 1px;
-    }
+    .app-logo-text { font-size: 16px; font-weight: 500; color: var(--gold); }
+    .header-actions { display: flex; gap: 8px; }
     .header-icon-btn {
         width: 38px; height: 38px;
         border-radius: 50%;
-        background: rgba(212, 175, 55, 0.08);
-        border: 1px solid rgba(212, 175, 55, 0.25);
-        color: #d4af37;
-        font-size: 17px;
+        background: var(--bg-icon-btn);
+        border: 1px solid var(--border-gold);
+        color: var(--gold); font-size: 17px;
         cursor: pointer;
         display: flex; align-items: center; justify-content: center;
         transition: all 0.25s ease;
     }
-    .header-icon-btn:active {
-        transform: scale(0.9);
-        background: rgba(212, 175, 55, 0.2);
+    .header-icon-btn:active { transform: scale(0.9); }
+    .theme-toggle { position: relative; overflow: hidden; }
+    .theme-toggle .icon-sun, .theme-toggle .icon-moon {
+        position: absolute; transition: all 0.4s ease;
     }
+    .theme-toggle .icon-sun { opacity: 0; transform: rotate(90deg); }
+    .theme-toggle .icon-moon { opacity: 1; }
+    body.light .theme-toggle .icon-sun { opacity: 1; transform: rotate(0); }
+    body.light .theme-toggle .icon-moon { opacity: 0; transform: rotate(-90deg); }
 
-    /* ===== SEARCH BAR ===== */
-    .search-bar {
-        padding: 14px 18px 0;
-        position: relative;
-        z-index: 5;
-    }
-    .search-input-wrapper {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
+    .search-bar { padding: 14px 18px 0; position: relative; z-index: 5; }
+    .search-input-wrapper { position: relative; display: flex; align-items: center; }
     .search-input-wrapper input {
-        width: 100%;
-        padding: 14px 46px 14px 18px;
-        background: rgba(24,23,21,0.9);
-        border: 1px solid rgba(212, 175, 55, 0.2);
+        width: 100%; padding: 14px 46px 14px 18px;
+        background: var(--bg-input);
+        border: 1px solid var(--border-gold);
         border-radius: 16px;
-        color: #fff;
+        color: var(--text-primary);
         font-family: Vazirmatn, sans-serif;
-        font-size: 14px;
-        outline: none;
+        font-size: 14px; outline: none;
         transition: all 0.3s ease;
     }
-    .search-input-wrapper input:focus {
-        border-color: #d4af37;
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+    .search-input-wrapper input::placeholder { color: var(--text-desc); }
+    .search-icon {
+        position: absolute; right: 16px;
+        color: var(--gold); font-size: 16px;
     }
-    .search-input-wrapper input::placeholder { color: #6a655c; }
-    .search-input-wrapper .search-icon {
-        position: absolute;
-        right: 16px;
-        color: #d4af37;
-        font-size: 16px;
-        pointer-events: none;
-    }
-    .search-input-wrapper .clear-btn {
-        position: absolute;
-        left: 12px;
+    .clear-btn {
+        position: absolute; left: 12px;
         width: 24px; height: 24px;
         border-radius: 50%;
-        background: rgba(212, 175, 55, 0.15);
-        color: #d4af37;
-        border: none;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
+        background: var(--bg-icon-btn);
+        color: var(--gold); border: none;
+        cursor: pointer; display: none;
+        align-items: center; justify-content: center;
         font-size: 14px;
     }
     .search-input-wrapper.has-value .clear-btn { display: flex; }
 
-    /* ===== CATEGORY CHIPS ===== */
     .chips-scroll {
-        display: flex;
-        gap: 8px;
+        display: flex; gap: 8px;
         padding: 14px 18px;
         overflow-x: auto;
         scrollbar-width: none;
-        -ms-overflow-style: none;
-        position: relative;
-        z-index: 5;
+        position: relative; z-index: 5;
     }
     .chips-scroll::-webkit-scrollbar { display: none; }
     .chip {
-        flex-shrink: 0;
-        padding: 9px 18px;
-        background: rgba(24,23,21,0.9);
-        border: 1px solid rgba(212, 175, 55, 0.2);
+        flex-shrink: 0; padding: 9px 18px;
+        background: var(--bg-input);
+        border: 1px solid var(--border-gold);
         border-radius: 20px;
-        color: #c8c4ba;
+        color: var(--text-secondary);
         font-family: Vazirmatn, sans-serif;
-        font-size: 12px;
-        cursor: pointer;
+        font-size: 12px; cursor: pointer;
         transition: all 0.25s ease;
         white-space: nowrap;
-        display: flex;
-        align-items: center;
-        gap: 6px;
+        display: flex; align-items: center; gap: 6px;
     }
     .chip.active {
         background: linear-gradient(135deg, #f39c12, #e74c3c);
-        border-color: transparent;
-        color: #fff;
+        border-color: transparent; color: #fff;
         box-shadow: 0 4px 15px rgba(243, 156, 18, 0.35);
     }
     .chip:active { transform: scale(0.95); }
-    .chip .chip-icon { font-size: 14px; }
 
-    /* ===== TAB CONTENT ===== */
-    .tab-content {
-        display: none;
-        padding: 0 18px 20px;
-        position: relative;
-        z-index: 5;
-        animation: tabIn 0.35s ease;
-    }
+    .tab-content { display: none; padding: 0 18px 20px; position: relative; z-index: 5; }
     .tab-content.active { display: block; }
-    @keyframes tabIn {
-        from { opacity: 0; transform: translateY(15px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    .page-title { font-size: 22px; font-weight: 500; color: var(--gold); margin: 20px 0 6px; }
+    .page-subtitle { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; }
+    .update-info { font-size: 11px; color: var(--text-desc); margin-bottom: 16px; padding: 8px 12px; background: var(--bg-subtle); border-radius: 8px; border-right: 3px solid var(--gold); }
 
-    .page-title {
-        font-size: 22px;
-        font-weight: 500;
-        color: #d4af37;
-        margin: 20px 0 6px;
-        letter-spacing: 1px;
-    }
-    .page-subtitle {
-        font-size: 12px;
-        color: #8a8378;
-        margin-bottom: 20px;
-    }
-
-    /* ===== CAR CARDS (Mobile Style) ===== */
-    .cars-list {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
+    .cars-list { display: flex; flex-direction: column; gap: 12px; }
     .car-item {
-        background: linear-gradient(145deg, rgba(24,23,21,0.95), rgba(9,11,17,0.92));
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        border-radius: 18px;
-        padding: 14px;
-        position: relative;
-        overflow: hidden;
+        background: linear-gradient(145deg, var(--bg-card-start), var(--bg-card-end));
+        border: 1px solid var(--border-gold);
+        border-radius: 18px; padding: 14px;
+        position: relative; overflow: hidden;
         cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        gap: 14px;
-        align-items: center;
+        transition: all 0.3s ease;
+        display: flex; gap: 14px; align-items: center;
         animation: itemIn 0.5s ease backwards;
+        box-shadow: var(--shadow-card);
     }
     @keyframes itemIn {
         from { opacity: 0; transform: translateX(20px); }
         to { opacity: 1; transform: translateX(0); }
     }
-    .car-item:active {
-        transform: scale(0.97);
-        background: rgba(34, 30, 25, 0.98);
-        border-color: rgba(244, 202, 79, 0.5);
-    }
-    .car-item::after {
-        content: "";
-        position: absolute;
-        bottom: 8px; left: 8px;
-        width: 12px; height: 12px;
-        border: 2px solid #d4af37;
-        border-right: none; border-top: none;
-        opacity: 0.4;
-    }
-
+    .car-item:active { transform: scale(0.97); background: var(--bg-card-hover); }
     .car-thumb {
-        flex-shrink: 0;
-        width: 70px; height: 70px;
+        flex-shrink: 0; width: 70px; height: 70px;
         border-radius: 14px;
         background: linear-gradient(135deg, #1a1f2e, #0d1220);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: flex; align-items: center; justify-content: center;
         font-size: 34px;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(212, 175, 55, 0.15);
+        border: 1px solid var(--border-gold);
     }
-    .car-thumb .thumb-icon {
-        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
-    }
-
-    .car-details {
-        flex: 1;
-        min-width: 0;
-    }
-    .car-item-name {
-        font-size: 14px;
-        font-weight: 500;
-        color: #fff;
-        margin-bottom: 3px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .car-item-meta {
-        font-size: 10px;
-        color: #6a655c;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
-    }
-    .car-item-price {
-        font-size: 13px;
-        font-family: Georgia, Vazirmatn, serif;
-        color: #e8c766;
-        direction: ltr;
-        text-align: right;
-        display: block;
-        letter-spacing: 0.3px;
-    }
-    .car-item-price.factory {
-        font-size: 11px;
-        color: #7fc99a;
-        margin-top: 3px;
-    }
-    .car-item-price.na { color: #6a655c; font-size: 11px; }
-
+    body.light .car-thumb { background: linear-gradient(135deg, #f0e8d0, #e8dcc0); }
+    .car-details { flex: 1; min-width: 0; }
+    .car-item-name { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 3px; }
+    .car-item-meta { font-size: 10px; color: var(--text-desc); margin-bottom: 8px; }
+    .car-item-price { font-size: 13px; color: var(--gold); direction: ltr; text-align: right; display: block; }
+    .car-item-price.factory { font-size: 11px; color: var(--green); margin-top: 3px; }
+    .car-item-price.na { color: var(--text-desc); font-size: 11px; }
     .car-item-badge {
-        position: absolute;
-        top: 8px; left: 8px;
+        position: absolute; top: 8px; left: 8px;
         padding: 3px 8px;
         background: rgba(243, 156, 18, 0.15);
         border: 1px solid rgba(243, 156, 18, 0.3);
-        border-radius: 12px;
-        font-size: 9px;
-        color: #f39c12;
-        letter-spacing: 0.5px;
+        border-radius: 12px; font-size: 9px; color: #f39c12;
     }
 
-    /* ===== FAVORITES TAB ===== */
-    .empty-state {
-        text-align: center;
-        padding: 60px 20px;
-        color: #6a655c;
-    }
-    .empty-icon {
-        font-size: 60px;
-        margin-bottom: 15px;
-        opacity: 0.5;
-    }
-    .empty-title {
-        font-size: 16px;
-        color: #8a8378;
-        margin-bottom: 8px;
-    }
-    .empty-desc {
-        font-size: 12px;
-        color: #5a5550;
-    }
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--text-desc); }
+    .empty-icon { font-size: 60px; margin-bottom: 15px; opacity: 0.5; }
+    .empty-title { font-size: 16px; color: var(--text-muted); margin-bottom: 8px; }
 
-    /* ===== PROFILE TAB ===== */
-    .profile-header {
-        text-align: center;
-        padding: 30px 20px;
-        position: relative;
-    }
+    .profile-header { text-align: center; padding: 30px 20px; }
     .profile-avatar {
-        width: 90px; height: 90px;
-        border-radius: 50%;
-        border: 3px solid #d4af37;
+        width: 90px; height: 90px; border-radius: 50%;
+        border: 3px solid var(--gold);
         background: linear-gradient(135deg, #1a1208, #3d2817);
         margin: 0 auto 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: flex; align-items: center; justify-content: center;
         font-size: 40px;
-        box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
     }
-    .profile-name {
-        font-size: 18px;
-        color: #d4af37;
-        font-weight: 500;
-        margin-bottom: 4px;
-    }
-    .profile-email {
-        font-size: 12px;
-        color: #6a655c;
-    }
+    body.light .profile-avatar { background: linear-gradient(135deg, #f0e0a8, #d4af37); }
+    .profile-name { font-size: 18px; color: var(--gold); margin-bottom: 4px; }
+    .profile-email { font-size: 12px; color: var(--text-desc); }
 
-    .menu-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 20px;
-    }
+    .menu-list { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
     .menu-item {
-        display: flex;
-        align-items: center;
-        gap: 14px;
+        display: flex; align-items: center; gap: 14px;
         padding: 16px 18px;
-        background: linear-gradient(145deg, rgba(24,23,21,0.95), rgba(9,11,17,0.92));
-        border: 1px solid rgba(212, 175, 55, 0.15);
+        background: linear-gradient(145deg, var(--bg-card-start), var(--bg-card-end));
+        border: 1px solid var(--border-gold);
         border-radius: 14px;
-        color: #c8c4ba;
-        font-size: 14px;
-        cursor: pointer;
+        color: var(--text-secondary);
+        font-size: 14px; cursor: pointer;
         transition: all 0.25s ease;
         text-decoration: none;
+        box-shadow: var(--shadow-card);
     }
-    .menu-item:active {
-        transform: scale(0.98);
-        background: rgba(34, 30, 25, 0.98);
-        border-color: rgba(244, 202, 79, 0.4);
-    }
+    .menu-item:active { transform: scale(0.98); }
     .menu-item-icon {
-        width: 36px; height: 36px;
-        border-radius: 10px;
-        background: rgba(212, 175, 55, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #d4af37;
-        font-size: 17px;
+        width: 36px; height: 36px; border-radius: 10px;
+        background: var(--bg-icon-btn);
+        display: flex; align-items: center; justify-content: center;
+        color: var(--gold); font-size: 17px; flex-shrink: 0;
+    }
+    .menu-item-text { flex: 1; }
+    .menu-item-title { color: var(--text-primary); margin-bottom: 2px; }
+    .menu-item-desc { font-size: 11px; color: var(--text-desc); }
+    .menu-item-arrow { color: var(--gold); font-size: 18px; opacity: 0.6; }
+
+    .theme-switch {
+        position: relative; width: 50px; height: 28px;
+        background: var(--bg-icon-btn);
+        border: 1px solid var(--border-gold);
+        border-radius: 14px; cursor: pointer;
         flex-shrink: 0;
     }
-    .menu-item-text {
-        flex: 1;
+    .theme-switch::after {
+        content: ""; position: absolute;
+        top: 2px; right: 2px;
+        width: 22px; height: 22px; border-radius: 50%;
+        background: linear-gradient(135deg, #f39c12, #e74c3c);
+        transition: all 0.3s ease;
     }
-    .menu-item-title {
-        color: #fff;
-        font-weight: 400;
-        margin-bottom: 2px;
-    }
-    .menu-item-desc {
-        font-size: 11px;
-        color: #6a655c;
-    }
-    .menu-item-arrow {
-        color: #d4af37;
-        font-size: 18px;
-        opacity: 0.6;
-    }
+    body.light .theme-switch::after { transform: translateX(-22px); }
 
-    /* ===== STATISTICS CARD ===== */
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        margin-bottom: 20px;
-    }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .stat-card {
-        background: linear-gradient(145deg, rgba(24,23,21,0.95), rgba(9,11,17,0.92));
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        border-radius: 16px;
-        padding: 16px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
+        background: linear-gradient(145deg, var(--bg-card-start), var(--bg-card-end));
+        border: 1px solid var(--border-gold);
+        border-radius: 16px; padding: 16px;
+        text-align: center; position: relative; overflow: hidden;
+        box-shadow: var(--shadow-card);
     }
-    .stat-card::before {
-        content: "";
-        position: absolute;
-        top: 0; right: 0;
-        width: 60px; height: 60px;
-        background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
-        border-radius: 50%;
-    }
-    .stat-icon {
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
-    .stat-value {
-        font-size: 22px;
-        font-family: Georgia, Vazirmatn, serif;
-        color: #d4af37;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        margin-bottom: 4px;
-    }
-    .stat-label {
-        font-size: 11px;
-        color: #8a8378;
-        letter-spacing: 1px;
-    }
+    .stat-icon { font-size: 24px; margin-bottom: 8px; }
+    .stat-value { font-size: 22px; color: var(--gold); font-weight: 500; margin-bottom: 4px; }
+    .stat-label { font-size: 11px; color: var(--text-muted); }
 
-    /* ===== BOTTOM NAVIGATION ===== */
     .bottom-nav {
-        position: fixed;
-        bottom: 0;
-        left: 50%;
+        position: fixed; bottom: 0; left: 50%;
         transform: translateX(-50%);
-        width: 100%;
-        max-width: 500px;
-        background: rgba(6, 8, 13, 0.95);
+        width: 100%; max-width: 500px;
+        background: var(--bg-bottom-nav);
         backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border-top: 1px solid rgba(212, 175, 55, 0.15);
+        border-top: 1px solid var(--border-subtle);
         padding: 10px 8px 14px;
-        display: flex;
-        justify-content: space-around;
+        display: flex; justify-content: space-around;
         z-index: 100;
         padding-bottom: calc(14px + env(safe-area-inset-bottom));
     }
     .nav-item {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        padding: 6px 4px;
-        cursor: pointer;
-        border-radius: 12px;
+        flex: 1; display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        gap: 4px; padding: 6px 4px;
+        cursor: pointer; border-radius: 12px;
         transition: all 0.25s ease;
         position: relative;
-        text-decoration: none;
-        border: none;
-        background: none;
+        border: none; background: none;
         font-family: Vazirmatn, sans-serif;
     }
     .nav-item:active { transform: scale(0.92); }
-    .nav-icon {
-        font-size: 22px;
-        transition: all 0.25s ease;
-        filter: grayscale(1) opacity(0.6);
-    }
-    .nav-label {
-        font-size: 10px;
-        color: #6a655c;
-        transition: all 0.25s ease;
-        letter-spacing: 0.5px;
-    }
-    .nav-item.active .nav-icon {
-        filter: none;
-        transform: translateY(-2px);
-    }
-    .nav-item.active .nav-label {
-        color: #d4af37;
-        font-weight: 500;
-    }
+    .nav-icon { font-size: 22px; filter: grayscale(1) opacity(0.6); transition: all 0.25s; }
+    .nav-label { font-size: 10px; color: var(--text-desc); transition: all 0.25s; }
+    .nav-item.active .nav-icon { filter: none; transform: translateY(-2px); }
+    .nav-item.active .nav-label { color: var(--gold); font-weight: 500; }
     .nav-item.active::before {
-        content: "";
-        position: absolute;
-        top: 0;
+        content: ""; position: absolute; top: 0;
         width: 20px; height: 3px;
         background: linear-gradient(90deg, #f39c12, #e74c3c);
         border-radius: 2px;
-        box-shadow: 0 0 10px rgba(243, 156, 18, 0.6);
     }
 
-    /* ===== TOAST ===== */
     .toast {
-        position: fixed;
-        bottom: 100px;
-        left: 50%;
+        position: fixed; bottom: 100px; left: 50%;
         transform: translateX(-50%) translateY(20px);
         background: linear-gradient(135deg, #f39c12, #e74c3c);
-        color: #fff;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-size: 13px;
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s ease;
-        z-index: 200;
-        box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
-        max-width: 90%;
-        text-align: center;
+        color: #fff; padding: 12px 24px;
+        border-radius: 25px; font-size: 13px;
+        opacity: 0; pointer-events: none;
+        transition: all 0.3s ease; z-index: 200;
+        max-width: 90%; text-align: center;
     }
-    .toast.show {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* ===== FAVORITE BUTTON ===== */
     .fav-btn {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 28px; height: 28px;
-        border-radius: 50%;
+        position: absolute; top: 10px; left: 10px;
+        width: 28px; height: 28px; border-radius: 50%;
         background: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        color: #d4af37;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.25s ease;
+        border: 1px solid var(--border-gold);
+        color: var(--gold);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 14px; cursor: pointer;
         z-index: 5;
     }
-    .fav-btn:active { transform: scale(0.85); }
+    body.light .fav-btn { background: rgba(255, 252, 245, 0.85); }
     .fav-btn.active {
         background: linear-gradient(135deg, #f39c12, #e74c3c);
-        color: #fff;
-        border-color: transparent;
+        color: #fff; border-color: transparent;
     }
 
-    /* ===== DETAIL MODAL ===== */
     .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.85);
+        position: fixed; inset: 0;
+        background: var(--bg-overlay);
         backdrop-filter: blur(10px);
-        z-index: 500;
-        display: none;
-        align-items: flex-end;
-        justify-content: center;
+        z-index: 500; display: none;
+        align-items: flex-end; justify-content: center;
     }
     .modal-overlay.show { display: flex; }
     .modal-sheet {
-        background: linear-gradient(145deg, rgba(24,23,21,0.98), rgba(9,11,17,0.98));
+        background: var(--bg-modal);
         border-radius: 24px 24px 0 0;
-        border: 1px solid rgba(212, 175, 55, 0.3);
+        border: 1px solid var(--border-gold-strong);
         border-bottom: none;
-        max-width: 500px;
-        width: 100%;
-        padding: 20px;
-        max-height: 80vh;
-        overflow-y: auto;
-        animation: modalIn 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        max-width: 500px; width: 100%;
+        padding: 20px; max-height: 80vh; overflow-y: auto;
+        animation: modalIn 0.35s ease;
         padding-bottom: calc(20px + env(safe-area-inset-bottom));
     }
-    @keyframes modalIn {
-        from { transform: translateY(100%); }
-        to { transform: translateY(0); }
-    }
+    @keyframes modalIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
     .modal-handle {
         width: 40px; height: 4px;
-        background: rgba(212, 175, 55, 0.3);
-        border-radius: 2px;
-        margin: 0 auto 18px;
+        background: var(--border-gold-strong);
+        border-radius: 2px; margin: 0 auto 18px;
     }
-    .modal-title {
-        font-size: 18px;
-        color: #d4af37;
-        font-weight: 500;
-        margin-bottom: 6px;
-        text-align: center;
-    }
-    .modal-subtitle {
-        font-size: 12px;
-        color: #8a8378;
-        text-align: center;
-        margin-bottom: 20px;
-    }
+    .modal-title { font-size: 18px; color: var(--gold); margin-bottom: 6px; text-align: center; }
+    .modal-subtitle { font-size: 12px; color: var(--text-muted); text-align: center; margin-bottom: 20px; }
     .modal-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px 16px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 12px;
-        margin-bottom: 8px;
+        display: flex; justify-content: space-between;
+        align-items: center; padding: 14px 16px;
+        background: var(--bg-subtle);
+        border-radius: 12px; margin-bottom: 8px;
     }
-    .modal-row-label {
-        font-size: 12px;
-        color: #8a8378;
-    }
-    .modal-row-value {
-        font-size: 13px;
-        color: #e8c766;
-        font-family: Georgia, Vazirmatn, serif;
-        direction: ltr;
-    }
-    .modal-row-value.factory { color: #7fc99a; }
-
-    .modal-actions {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-    }
+    .modal-row-label { font-size: 12px; color: var(--text-muted); }
+    .modal-row-value { font-size: 13px; color: var(--gold); direction: ltr; }
+    .modal-row-value.factory { color: var(--green); }
+    .modal-actions { display: flex; gap: 10px; margin-top: 20px; }
     .modal-btn {
-        flex: 1;
-        padding: 14px;
-        border-radius: 14px;
-        border: none;
-        font-family: Vazirmatn, sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        text-decoration: none;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
+        flex: 1; padding: 14px; border-radius: 14px;
+        border: none; font-family: Vazirmatn, sans-serif;
+        font-size: 14px; font-weight: 500;
+        cursor: pointer; transition: all 0.25s ease;
+        text-decoration: none; text-align: center;
+        display: flex; align-items: center; justify-content: center;
     }
-    .modal-btn:active { transform: scale(0.96); }
     .modal-btn.primary {
         background: linear-gradient(135deg, #f39c12, #e74c3c);
         color: #fff;
-        box-shadow: 0 8px 25px rgba(243, 156, 18, 0.35);
     }
     .modal-btn.secondary {
-        background: rgba(212, 175, 55, 0.1);
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        color: #d4af37;
+        background: var(--bg-icon-btn);
+        border: 1px solid var(--border-gold-strong);
+        color: var(--gold);
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 500px) {
-        .app { max-width: 100%; }
-        .bottom-nav { max-width: 100%; }
-        .bg-glow { max-width: 100%; }
-    }
-
-    /* ===== ANIMATIONS ===== */
-    .pulse-anim { animation: pulse 1.5s ease-in-out infinite; }
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-    }
-
-    /* Scrollbar for modal */
-    .modal-sheet::-webkit-scrollbar { width: 4px; }
-    .modal-sheet::-webkit-scrollbar-track { background: transparent; }
-    .modal-sheet::-webkit-scrollbar-thumb {
-        background: rgba(212, 175, 55, 0.3);
-        border-radius: 2px;
+        .app, .bottom-nav, .bg-glow { max-width: 100%; }
     }
 </style>
 </head>
 <body>
 
-<!-- ===== SPLASH SCREEN ===== -->
 <div class="splash" id="splash">
     <div class="splash-logo">A</div>
     <div class="splash-title">ARIANA CARS</div>
@@ -788,24 +529,23 @@
     <div class="splash-loader"></div>
 </div>
 
-<!-- ===== APP ===== -->
 <div class="app">
-
     <div class="bg-glow"></div>
 
-    <!-- ===== HEADER ===== -->
     <header class="app-header">
         <div class="app-logo">
             <div class="app-logo-icon">A</div>
             <div class="app-logo-text">ARIANA</div>
         </div>
-        <button class="header-icon-btn" onclick="showToast('به‌زودی...')">🔔</button>
+        <div class="header-actions">
+            <button class="header-icon-btn theme-toggle" onclick="toggleTheme()">
+                <span class="icon-moon">🌙</span>
+                <span class="icon-sun">☀️</span>
+            </button>
+        </div>
     </header>
 
-    <!-- ===== HOME TAB ===== -->
     <div class="tab-content active" id="tab-home">
-
-        <!-- Search -->
         <div class="search-bar">
             <div class="search-input-wrapper" id="searchWrapper">
                 <input type="text" id="searchInput" placeholder="جستجوی خودرو..." />
@@ -814,34 +554,31 @@
             </div>
         </div>
 
-        <!-- Category Chips -->
         <div class="chips-scroll" id="filterTabs">
-            <div class="chip active" data-brand="all"><span class="chip-icon">🚗</span> همه</div>
-            <div class="chip" data-brand="ikco"><span class="chip-icon">🏭</span> ایران خودرو</div>
-            <div class="chip" data-brand="saipa"><span class="chip-icon">🔵</span> سایپا</div>
-            <div class="chip" data-brand="kerman"><span class="chip-icon">🟠</span> کرمان موتور</div>
-            <div class="chip" data-brand="pars"><span class="chip-icon">🟢</span> پارس خودرو</div>
-            <div class="chip" data-brand="mvm"><span class="chip-icon">🟣</span> مدیران خودرو</div>
+            <div class="chip active" data-brand="all"><span>🚗</span> همه</div>
+            <div class="chip" data-brand="ikco"><span>🏭</span> ایران خودرو</div>
+            <div class="chip" data-brand="saipa"><span>🔵</span> سایپا</div>
+            <div class="chip" data-brand="kerman"><span>🟠</span> کرمان موتور</div>
+            <div class="chip" data-brand="pars"><span>🟢</span> پارس خودرو</div>
+            <div class="chip" data-brand="mvm"><span>🟣</span> مدیران خودرو</div>
         </div>
 
         <div class="page-title">لیست قیمت خودروها</div>
-        <div class="page-subtitle">به‌روزرسانی: مهر ۱۴۰۵ — برای جزئیات روی هر خودرو بزنید</div>
+        <div class="page-subtitle">قیمت‌ها به‌صورت خودکار از باما به‌روز می‌شوند</div>
+        <div class="update-info" id="updateInfo">⏳ در حال دریافت آخرین قیمت‌ها...</div>
 
         <div class="cars-list" id="carsList"></div>
     </div>
 
-    <!-- ===== FAVORITES TAB ===== -->
     <div class="tab-content" id="tab-favorites">
         <div class="page-title">علاقه‌مندی‌ها</div>
         <div class="page-subtitle">خودروهایی که نشان کردید</div>
         <div id="favoritesList"></div>
     </div>
 
-    <!-- ===== STATS TAB ===== -->
     <div class="tab-content" id="tab-stats">
         <div class="page-title">آمار و اطلاعات</div>
         <div class="page-subtitle">نگاهی کلی به بازار خودرو</div>
-
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon">🚗</div>
@@ -866,20 +603,26 @@
         </div>
     </div>
 
-    <!-- ===== PROFILE TAB ===== -->
     <div class="tab-content" id="tab-profile">
         <div class="profile-header">
             <div class="profile-avatar">👤</div>
             <div class="profile-name">کاربر مهمان</div>
             <div class="profile-email">arianasaite.github.io</div>
         </div>
-
         <div class="menu-list">
+            <div class="menu-item" onclick="toggleTheme()">
+                <div class="menu-item-icon">🎨</div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">حالت نمایش</div>
+                    <div class="menu-item-desc" id="themeLabel">حالت شب فعال است</div>
+                </div>
+                <div class="theme-switch"></div>
+            </div>
             <a href="https://bama.ir" target="_blank" class="menu-item">
                 <div class="menu-item-icon">🌐</div>
                 <div class="menu-item-text">
                     <div class="menu-item-title">سایت باما</div>
-                    <div class="menu-item-desc">مشاهده قیمت‌های آنلاین</div>
+                    <div class="menu-item-desc">منبع اصلی قیمت‌ها</div>
                 </div>
                 <div class="menu-item-arrow">‹</div>
             </a>
@@ -887,189 +630,160 @@
                 <div class="menu-item-icon">📱</div>
                 <div class="menu-item-text">
                     <div class="menu-item-title">دیوار</div>
-                    <div class="menu-item-desc">آگهی‌های فروش خودرو</div>
+                    <div class="menu-item-desc">آگهی‌های فروش</div>
                 </div>
                 <div class="menu-item-arrow">‹</div>
             </a>
-            <div class="menu-item" onclick="showToast('به‌زودی اضافه می‌شود')">
-                <div class="menu-item-icon">⚙️</div>
-                <div class="menu-item-text">
-                    <div class="menu-item-title">تنظیمات</div>
-                    <div class="menu-item-desc">شخصی‌سازی اپلیکیشن</div>
-                </div>
-                <div class="menu-item-arrow">‹</div>
-            </div>
-            <div class="menu-item" onclick="showToast('نسخه ۱.۰.۰')">
-                <div class="menu-item-icon">ℹ️</div>
-                <div class="menu-item-text">
-                    <div class="menu-item-title">درباره ما</div>
-                    <div class="menu-item-desc">نسخه ۱.۰.۰</div>
-                </div>
-                <div class="menu-item-arrow">‹</div>
-            </div>
         </div>
     </div>
-
 </div>
 
-<!-- ===== BOTTOM NAVIGATION ===== -->
 <nav class="bottom-nav">
-    <button class="nav-item active" data-tab="home" onclick="switchTab('home', this)">
+    <button class="nav-item active" onclick="switchTab('home', this)">
         <span class="nav-icon">🏠</span>
         <span class="nav-label">خانه</span>
     </button>
-    <button class="nav-item" data-tab="favorites" onclick="switchTab('favorites', this)">
+    <button class="nav-item" onclick="switchTab('favorites', this)">
         <span class="nav-icon">❤️</span>
         <span class="nav-label">علاقه‌مندی</span>
     </button>
-    <button class="nav-item" data-tab="stats" onclick="switchTab('stats', this)">
+    <button class="nav-item" onclick="switchTab('stats', this)">
         <span class="nav-icon">📊</span>
         <span class="nav-label">آمار</span>
     </button>
-    <button class="nav-item" data-tab="profile" onclick="switchTab('profile', this)">
+    <button class="nav-item" onclick="switchTab('profile', this)">
         <span class="nav-icon">👤</span>
         <span class="nav-label">پروفایل</span>
     </button>
 </nav>
 
-<!-- ===== MODAL ===== -->
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target === this) closeModal()">
-    <div class="modal-sheet" id="modalSheet">
+    <div class="modal-sheet">
         <div class="modal-handle"></div>
         <div class="modal-title" id="modalTitle">—</div>
         <div class="modal-subtitle" id="modalSubtitle">—</div>
         <div id="modalBody"></div>
         <div class="modal-actions">
-            <a href="#" target="_blank" class="modal-btn primary" id="modalDivarBtn">
-                🔍 جستجو در دیوار
-            </a>
+            <a href="#" target="_blank" class="modal-btn primary" id="modalDivarBtn">🔍 جستجو در دیوار</a>
             <button class="modal-btn secondary" onclick="closeModal()">بستن</button>
         </div>
     </div>
 </div>
 
-<!-- ===== TOAST ===== -->
 <div class="toast" id="toast"></div>
 
 <script>
-    // ==================== داده‌ها ====================
-    const carsData = [
-        { brand: "ikco", brandName: "ایران خودرو", name: "وانت آریسان", type: "وانت", marketPrice: 1998000000, factoryPrice: 2026000000, icon: "🛻" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "سورن (TU5P)", type: "سدان", marketPrice: 2635000000, factoryPrice: 1870000000, icon: "🚗" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "سورن XU7P", type: "سدان", marketPrice: 2125000000, factoryPrice: 1725000000, icon: "🚗" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "دنا پلاس MT6", type: "سدان", marketPrice: 2685000000, factoryPrice: 2172000000, icon: "🚗" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "دنا پلاس اتوماتیک", type: "سدان", marketPrice: 3530000000, factoryPrice: 2611000000, icon: "🚗" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "پژو 207 موتور TU3", type: "هاچ‌بک", marketPrice: 2150000000, factoryPrice: 1740000000, icon: "🚙" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "پژو 207 اتوماتیک", type: "هاچ‌بک", marketPrice: 3600000000, factoryPrice: 2177000000, icon: "🚙" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "رانا پلاس", type: "سدان", marketPrice: 2180000000, factoryPrice: 1622000000, icon: "🚗" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "تارا دستی V1", type: "سدان", marketPrice: 2680000000, factoryPrice: 2063000000, icon: "🚗" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "تارا اتوماتیک V4", type: "سدان", marketPrice: 3650000000, factoryPrice: 2470000000, icon: "🚗" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "هایما S7 پرو", type: "شاسی بلند", marketPrice: 6500000000, factoryPrice: null, icon: "🚐" },
-        { brand: "ikco", brandName: "ایران خودرو", name: "ری را", type: "شاسی بلند", marketPrice: 4600000000, factoryPrice: 3200000000, icon: "🚐" },
-
-        { brand: "saipa", brandName: "سایپا", name: "سهند S", type: "سدان", marketPrice: 1790000000, factoryPrice: 1031400000, icon: "🚗" },
-        { brand: "saipa", brandName: "سایپا", name: "اطلس S", type: "سدان", marketPrice: 1720000000, factoryPrice: 1021736000, icon: "🚗" },
-        { brand: "saipa", brandName: "سایپا", name: "اطلس اتوماتیک", type: "سدان", marketPrice: 2030000000, factoryPrice: 1442100000, icon: "🚗" },
-        { brand: "saipa", brandName: "سایپا", name: "ساینا S", type: "سدان", marketPrice: 1675000000, factoryPrice: 992900000, icon: "🚗" },
-        { brand: "saipa", brandName: "سایپا", name: "کوییک RS", type: "هاچ‌بک", marketPrice: 1635000000, factoryPrice: 1012100000, icon: "🚙" },
-        { brand: "saipa", brandName: "سایپا", name: "کوییک GXR", type: "هاچ‌بک", marketPrice: 1690000000, factoryPrice: 825911000, icon: "🚙" },
-        { brand: "saipa", brandName: "سایپا", name: "شاهین GL", type: "سدان", marketPrice: 2580000000, factoryPrice: 1418020000, icon: "🚗" },
-        { brand: "saipa", brandName: "سایپا", name: "شاهین اتوماتیک پلاس", type: "سدان", marketPrice: 3520000000, factoryPrice: 1833657000, icon: "🚗" },
-        { brand: "saipa", brandName: "سایپا", name: "پارس نوآ", type: "سدان", marketPrice: 2880000000, factoryPrice: 1459000000, icon: "🚗" },
-        { brand: "saipa", brandName: "سایپا", name: "زامیاد اکستند EX", type: "وانت", marketPrice: 2200000000, factoryPrice: 2110000000, icon: "🛻" },
-        { brand: "saipa", brandName: "سایپا", name: "کارون", type: "وانت", marketPrice: 2955000000, factoryPrice: 1550700000, icon: "🛻" },
-        { brand: "saipa", brandName: "سایپا", name: "چانگان CS35", type: "شاسی بلند", marketPrice: 5300000000, factoryPrice: 3304000000, icon: "🚐" },
-        { brand: "saipa", brandName: "سایپا", name: "چانگان CS55", type: "شاسی بلند", marketPrice: 6500000000, factoryPrice: 3792000000, icon: "🚐" },
-
-        { brand: "kerman", brandName: "کرمان موتور", name: "کیامسی SR3", type: "شاسی بلند", marketPrice: 3141200000, factoryPrice: 3141200000, icon: "🚐" },
-        { brand: "kerman", brandName: "کرمان موتور", name: "کیامسی J7", type: "شاسی بلند", marketPrice: 4572000000, factoryPrice: 4572000000, icon: "🚐" },
-        { brand: "kerman", brandName: "کرمان موتور", name: "کیامسی X5", type: "شاسی بلند", marketPrice: 4293100000, factoryPrice: 4293100000, icon: "🚐" },
-        { brand: "kerman", brandName: "کرمان موتور", name: "کیامسی ایگل", type: "شاسی بلند", marketPrice: 2482000000, factoryPrice: 2482000000, icon: "🚐" },
-        { brand: "kerman", brandName: "کرمان موتور", name: "بک X3", type: "شاسی بلند", marketPrice: 3950000000, factoryPrice: 3010000000, icon: "🚐" },
-        { brand: "kerman", brandName: "کرمان موتور", name: "جک J4", type: "سدان", marketPrice: 2750000000, factoryPrice: 2482000000, icon: "🚗" },
-
-        { brand: "pars", brandName: "پارس خودرو", name: "سهند CNG", type: "سدان", marketPrice: null, factoryPrice: 937000000, icon: "🚗" },
-        { brand: "pars", brandName: "پارس خودرو", name: "پارس نوآ P90", type: "سدان", marketPrice: 2880000000, factoryPrice: 1231000000, icon: "🚗" },
-        { brand: "pars", brandName: "پارس خودرو", name: "کوییک GXRL", type: "هاچ‌بک", marketPrice: null, factoryPrice: 875000000, icon: "🚙" },
-        { brand: "pars", brandName: "پارس خودرو", name: "چانگان CS35 پلاس", type: "شاسی بلند", marketPrice: null, factoryPrice: 3545000000, icon: "🚐" },
-
-        { brand: "mvm", brandName: "مدیران خودرو", name: "ام‌وی‌ام X33 کراس", type: "شاسی بلند", marketPrice: null, factoryPrice: 3021000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "ام‌وی‌ام X55 پرو", type: "شاسی بلند", marketPrice: 4565000000, factoryPrice: 3888000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "ام‌وی‌ام X77 الیت", type: "شاسی بلند", marketPrice: 5420000000, factoryPrice: 4346000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "فونیکس Z6 GT", type: "سدان", marketPrice: 5420000000, factoryPrice: 4320000000, icon: "🚗" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "فونیکس Z8", type: "سدان", marketPrice: 7900000000, factoryPrice: 6254000000, icon: "🚗" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "فونیکس FX", type: "شاسی بلند", marketPrice: 6420000000, factoryPrice: 5175000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "تیگو 7 پرو مکس", type: "شاسی بلند", marketPrice: 6800000000, factoryPrice: 5553000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "تیگو 8 پرومکس", type: "شاسی بلند", marketPrice: 9450000000, factoryPrice: 7148000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "تیگو 9", type: "شاسی بلند", marketPrice: 11000000000, factoryPrice: 5915000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "اکستریم SX", type: "شاسی بلند", marketPrice: 6850000000, factoryPrice: 6247000000, icon: "🚐" },
-        { brand: "mvm", brandName: "مدیران خودرو", name: "اکستریم QX", type: "شاسی بلند", marketPrice: 12400000000, factoryPrice: 9484000000, icon: "🚐" }
+    // ==================== داده‌های پایه ====================
+    const baseCars = [
+        { brand: "ikco", brandName: "ایران خودرو", name: "وانت آریسان", searchKey: "آریسان", type: "وانت", marketPrice: 1998000000, factoryPrice: 2026000000, icon: "🛻" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "سورن (TU5P)", searchKey: "سورن", type: "سدان", marketPrice: 2635000000, factoryPrice: 1870000000, icon: "🚗" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "سورن XU7P", searchKey: "سورن", type: "سدان", marketPrice: 2125000000, factoryPrice: 1725000000, icon: "🚗" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "دنا پلاس MT6", searchKey: "دنا پلاس", type: "سدان", marketPrice: 2685000000, factoryPrice: 2172000000, icon: "🚗" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "دنا پلاس اتوماتیک", searchKey: "دنا پلاس", type: "سدان", marketPrice: 3530000000, factoryPrice: 2611000000, icon: "🚗" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "پژو 207 موتور TU3", searchKey: "پژو 207", type: "هاچ‌بک", marketPrice: 2150000000, factoryPrice: 1740000000, icon: "🚙" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "پژو 207 اتوماتیک", searchKey: "پژو 207", type: "هاچ‌بک", marketPrice: 3600000000, factoryPrice: 2177000000, icon: "🚙" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "رانا پلاس", searchKey: "رانا پلاس", type: "سدان", marketPrice: 2180000000, factoryPrice: 1622000000, icon: "🚗" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "تارا دستی V1", searchKey: "تارا", type: "سدان", marketPrice: 2680000000, factoryPrice: 2063000000, icon: "🚗" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "تارا اتوماتیک V4", searchKey: "تارا", type: "سدان", marketPrice: 3650000000, factoryPrice: 2470000000, icon: "🚗" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "هایما S7 پرو", searchKey: "هایما S7", type: "شاسی بلند", marketPrice: 6500000000, factoryPrice: null, icon: "🚐" },
+        { brand: "ikco", brandName: "ایران خودرو", name: "ری را", searchKey: "ری را", type: "شاسی بلند", marketPrice: 4600000000, factoryPrice: 3200000000, icon: "🚐" },
+        { brand: "saipa", brandName: "سایپا", name: "سهند S", searchKey: "سهند", type: "سدان", marketPrice: 1790000000, factoryPrice: 1031400000, icon: "🚗" },
+        { brand: "saipa", brandName: "سایپا", name: "اطلس S", searchKey: "اطلس", type: "سدان", marketPrice: 1720000000, factoryPrice: 1021736000, icon: "🚗" },
+        { brand: "saipa", brandName: "سایپا", name: "اطلس اتوماتیک", searchKey: "اطلس", type: "سدان", marketPrice: 2030000000, factoryPrice: 1442100000, icon: "🚗" },
+        { brand: "saipa", brandName: "سایپا", name: "ساینا S", searchKey: "ساینا", type: "سدان", marketPrice: 1675000000, factoryPrice: 992900000, icon: "🚗" },
+        { brand: "saipa", brandName: "سایپا", name: "کوییک RS", searchKey: "کوییک", type: "هاچ‌بک", marketPrice: 1635000000, factoryPrice: 1012100000, icon: "🚙" },
+        { brand: "saipa", brandName: "سایپا", name: "کوییک GXR", searchKey: "کوییک", type: "هاچ‌بک", marketPrice: 1690000000, factoryPrice: 825911000, icon: "🚙" },
+        { brand: "saipa", brandName: "سایپا", name: "شاهین GL", searchKey: "شاهین", type: "سدان", marketPrice: 2580000000, factoryPrice: 1418020000, icon: "🚗" },
+        { brand: "saipa", brandName: "سایپا", name: "شاهین اتوماتیک پلاس", searchKey: "شاهین", type: "سدان", marketPrice: 3520000000, factoryPrice: 1833657000, icon: "🚗" },
+        { brand: "saipa", brandName: "سایپا", name: "کارون", searchKey: "کارون", type: "وانت", marketPrice: 2955000000, factoryPrice: 1550700000, icon: "🛻" },
+        { brand: "saipa", brandName: "سایپا", name: "زامیاد اکستند EX", searchKey: "زامیاد", type: "وانت", marketPrice: 2200000000, factoryPrice: 2110000000, icon: "🛻" },
+        { brand: "kerman", brandName: "کرمان موتور", name: "کیامسی J7", searchKey: "کیامسی J7", type: "شاسی بلند", marketPrice: 4572000000, factoryPrice: 4572000000, icon: "🚐" },
+        { brand: "kerman", brandName: "کرمان موتور", name: "کیامسی X5", searchKey: "کیامسی X5", type: "شاسی بلند", marketPrice: 4293100000, factoryPrice: 4293100000, icon: "🚐" },
+        { brand: "kerman", brandName: "کرمان موتور", name: "کیامسی ایگل", searchKey: "کیامسی ایگل", type: "شاسی بلند", marketPrice: 2482000000, factoryPrice: 2482000000, icon: "🚐" },
+        { brand: "kerman", brandName: "کرمان موتور", name: "جک J4", searchKey: "جک J4", type: "سدان", marketPrice: 2750000000, factoryPrice: 2482000000, icon: "🚗" },
+        { brand: "pars", brandName: "پارس خودرو", name: "پارس نوآ P90", searchKey: "پارس نوآ", type: "سدان", marketPrice: 2880000000, factoryPrice: 1231000000, icon: "🚗" },
+        { brand: "mvm", brandName: "مدیران خودرو", name: "ام‌وی‌ام X55 پرو", searchKey: "X55", type: "شاسی بلند", marketPrice: 4565000000, factoryPrice: 3888000000, icon: "🚐" },
+        { brand: "mvm", brandName: "مدیران خودرو", name: "ام‌وی‌ام X77 الیت", searchKey: "X77", type: "شاسی بلند", marketPrice: 5420000000, factoryPrice: 4346000000, icon: "🚐" },
+        { brand: "mvm", brandName: "مدیران خودرو", name: "فونیکس FX", searchKey: "فونیکس FX", type: "شاسی بلند", marketPrice: 6420000000, factoryPrice: 5175000000, icon: "🚐" },
+        { brand: "mvm", brandName: "مدیران خودرو", name: "تیگو 7 پرو مکس", searchKey: "تیگو 7", type: "شاسی بلند", marketPrice: 6800000000, factoryPrice: 5553000000, icon: "🚐" },
+        { brand: "mvm", brandName: "مدیران خودرو", name: "تیگو 8 پرومکس", searchKey: "تیگو 8", type: "شاسی بلند", marketPrice: 9450000000, factoryPrice: 7148000000, icon: "🚐" },
+        { brand: "mvm", brandName: "مدیران خودرو", name: "اکستریم SX", searchKey: "اکستریم", type: "شاسی بلند", marketPrice: 6850000000, factoryPrice: 6247000000, icon: "🚐" }
     ];
 
-    // ==================== State ====================
+    let carsData = [...baseCars];
     let currentBrand = 'all';
     let currentSearch = '';
     let favorites = JSON.parse(localStorage.getItem('ariana_favs') || '[]');
 
-    // ==================== Utils ====================
-    function formatPrice(value) {
-        if (value === null || value === undefined) return null;
-        return Number(value).toLocaleString('fa-IR');
-    }
-
-    function buildDivarUrl(carName, province = 'tehran') {
-        let query = carName.replace(/\s*\(.*?\)\s*/g, '').trim();
-        return 'https://divar.ir/s/' + province + '/car?q=' + encodeURIComponent(query);
-    }
-
-    function toggleFavorite(name, event) {
-        event.stopPropagation();
-        const idx = favorites.indexOf(name);
-        if (idx > -1) {
-            favorites.splice(idx, 1);
-            showToast('از علاقه‌مندی‌ها حذف شد');
-        } else {
-            favorites.push(name);
-            showToast('به علاقه‌مندی‌ها اضافه شد ❤️');
+    // ==================== بارگذاری قیمت‌های به‌روز از JSON ====================
+    async function loadPricesFromJSON() {
+        const info = document.getElementById('updateInfo');
+        try {
+            const response = await fetch('data/prices.json?_=' + Date.now());
+            if (!response.ok) throw new Error('not found');
+            const data = await response.json();
+            
+            if (data.cars) {
+                Object.entries(data.cars).forEach(([jsonKey, priceData]) => {
+                    // پیدا کردن خودروهای مطابق
+                    const matchedCars = carsData.filter(c => 
+                        jsonKey.includes(c.searchKey) || c.searchKey.includes(jsonKey)
+                    );
+                    matchedCars.forEach(car => {
+                        if (priceData.avg) car.marketPrice = priceData.avg;
+                    });
+                });
+            }
+            
+            const updateDate = new Date(data.updated_at);
+            const faDate = updateDate.toLocaleString('fa-IR');
+            info.textContent = `✅ آخرین بروزرسانی قیمت‌ها از باما: ${faDate}`;
+            info.style.borderRightColor = '#27ae60';
+        } catch (e) {
+            info.textContent = '⚠️ اتصال به باما برقرار نشد — قیمت‌ها از آخرین نسخه ذخیره‌شده نمایش داده می‌شوند';
+            info.style.borderRightColor = '#f39c12';
         }
+        renderCars();
+        renderStats();
+    }
+
+    function formatPrice(v) {
+        if (v === null || v === undefined) return null;
+        return Number(v).toLocaleString('fa-IR');
+    }
+
+    function buildDivarUrl(name) {
+        let q = name.replace(/\s*\(.*?\)\s*/g, '').trim();
+        return 'https://divar.ir/s/tehran/car?q=' + encodeURIComponent(q);
+    }
+
+    function toggleFavorite(name, e) {
+        e.stopPropagation();
+        const idx = favorites.indexOf(name);
+        if (idx > -1) { favorites.splice(idx, 1); showToast('حذف شد'); }
+        else { favorites.push(name); showToast('اضافه شد ❤️'); }
         localStorage.setItem('ariana_favs', JSON.stringify(favorites));
         renderCars();
     }
 
-    // ==================== Render ====================
     function renderCars() {
         const list = document.getElementById('carsList');
         let filtered = carsData;
-
-        if (currentBrand !== 'all') {
-            filtered = filtered.filter(c => c.brand === currentBrand);
-        }
-
+        if (currentBrand !== 'all') filtered = filtered.filter(c => c.brand === currentBrand);
         if (currentSearch) {
             const q = currentSearch.toLowerCase();
-            filtered = filtered.filter(c =>
-                c.name.toLowerCase().includes(q) ||
-                c.brandName.toLowerCase().includes(q) ||
-                c.type.toLowerCase().includes(q)
-            );
+            filtered = filtered.filter(c => c.name.toLowerCase().includes(q) || c.brandName.toLowerCase().includes(q));
         }
 
         if (filtered.length === 0) {
-            list.innerHTML = `
-                <div class="empty-state">
-                    <div class="empty-icon">🔍</div>
-                    <div class="empty-title">خودرویی یافت نشد</div>
-                    <div class="empty-desc">عبارت دیگری امتحان کنید</div>
-                </div>
-            `;
+            list.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-title">یافت نشد</div></div>';
             return;
         }
 
         list.innerHTML = filtered.map((car, i) => {
-            const market = formatPrice(car.marketPrice);
-            const factory = formatPrice(car.factoryPrice);
+            const m = formatPrice(car.marketPrice);
+            const f = formatPrice(car.factoryPrice);
             const isFav = favorites.includes(car.name);
-
             let badge = '';
             if (car.marketPrice === null && car.factoryPrice === null) badge = 'ناموجود';
             else if (car.marketPrice && car.marketPrice < 2500000000) badge = 'اقتصادی';
@@ -1081,16 +795,12 @@
                     <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite('${car.name.replace(/'/g, "\\'")}', event)">
                         ${isFav ? '❤️' : '🤍'}
                     </button>
-                    <div class="car-thumb">
-                        <span class="thumb-icon">${car.icon}</span>
-                    </div>
+                    <div class="car-thumb"><span>${car.icon}</span></div>
                     <div class="car-details">
                         <div class="car-item-name">${car.name}</div>
                         <div class="car-item-meta">${car.brandName} • ${car.type}</div>
-                        <span class="car-item-price ${!market ? 'na' : ''}">
-                            ${market ? '💰 ' + market : '❌ ناموجود'}
-                        </span>
-                        ${factory ? `<span class="car-item-price factory">🏭 ${factory}</span>` : ''}
+                        <span class="car-item-price ${!m ? 'na' : ''}">${m ? '💰 ' + m : '❌ ناموجود'}</span>
+                        ${f ? `<span class="car-item-price factory">🏭 ${f}</span>` : ''}
                     </div>
                 </div>
             `;
@@ -1099,31 +809,21 @@
 
     function renderFavorites() {
         const list = document.getElementById('favoritesList');
-        const favCars = carsData.filter(c => favorites.includes(c.name));
-
-        if (favCars.length === 0) {
-            list.innerHTML = `
-                <div class="empty-state">
-                    <div class="empty-icon">💔</div>
-                    <div class="empty-title">هنوز چیزی نشان نکردی</div>
-                    <div class="empty-desc">روی قلب کنار خودروها بزن</div>
-                </div>
-            `;
+        const favs = carsData.filter(c => favorites.includes(c.name));
+        if (favs.length === 0) {
+            list.innerHTML = '<div class="empty-state"><div class="empty-icon">💔</div><div class="empty-title">هنوز چیزی نشان نکردی</div></div>';
             return;
         }
-
-        list.innerHTML = '<div class="cars-list">' + favCars.map(car => {
-            const market = formatPrice(car.marketPrice);
-            const factory = formatPrice(car.factoryPrice);
+        list.innerHTML = '<div class="cars-list">' + favs.map(car => {
+            const m = formatPrice(car.marketPrice);
             return `
                 <div class="car-item" onclick="openModal('${car.name.replace(/'/g, "\\'")}')">
                     <button class="fav-btn active" onclick="toggleFavorite('${car.name.replace(/'/g, "\\'")}', event)">❤️</button>
-                    <div class="car-thumb"><span class="thumb-icon">${car.icon}</span></div>
+                    <div class="car-thumb"><span>${car.icon}</span></div>
                     <div class="car-details">
                         <div class="car-item-name">${car.name}</div>
-                        <div class="car-item-meta">${car.brandName} • ${car.type}</div>
-                        <span class="car-item-price ${!market ? 'na' : ''}">${market ? '💰 ' + market : '❌ ناموجود'}</span>
-                        ${factory ? `<span class="car-item-price factory">🏭 ${factory}</span>` : ''}
+                        <div class="car-item-meta">${car.brandName}</div>
+                        <span class="car-item-price ${!m ? 'na' : ''}">${m ? '💰 ' + m : '❌ ناموجود'}</span>
                     </div>
                 </div>
             `;
@@ -1131,111 +831,87 @@
     }
 
     function renderStats() {
-        const prices = carsData.filter(c => c.marketPrice).map(c => c.marketPrice);
-        const cheapest = Math.min(...prices);
-        const expensive = Math.max(...prices);
-
+        const ps = carsData.filter(c => c.marketPrice).map(c => c.marketPrice);
+        if (ps.length === 0) return;
         document.getElementById('statTotal').textContent = carsData.length.toLocaleString('fa-IR');
-        document.getElementById('statCheap').textContent = (cheapest / 1000000).toFixed(0) + 'م';
-        document.getElementById('statExpensive').textContent = (expensive / 1000000).toFixed(0) + 'م';
+        document.getElementById('statCheap').textContent = (Math.min(...ps) / 1000000).toFixed(0) + 'م';
+        document.getElementById('statExpensive').textContent = (Math.max(...ps) / 1000000).toFixed(0) + 'م';
     }
 
-    // ==================== Tab Switching ====================
-    function switchTab(tabName, btn) {
+    function switchTab(name, btn) {
         document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-        document.getElementById('tab-' + tabName).classList.add('active');
+        document.getElementById('tab-' + name).classList.add('active');
         btn.classList.add('active');
-
-        if (tabName === 'favorites') renderFavorites();
-        if (tabName === 'stats') renderStats();
-
+        if (name === 'favorites') renderFavorites();
+        if (name === 'stats') renderStats();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ==================== Search ====================
-    document.getElementById('searchInput').addEventListener('input', (e) => {
+    document.getElementById('searchInput').addEventListener('input', e => {
         currentSearch = e.target.value.trim();
-        const wrapper = document.getElementById('searchWrapper');
-        if (currentSearch) wrapper.classList.add('has-value');
-        else wrapper.classList.remove('has-value');
+        document.getElementById('searchWrapper').classList.toggle('has-value', !!currentSearch);
         renderCars();
     });
-
     function clearSearch() {
         document.getElementById('searchInput').value = '';
         currentSearch = '';
         document.getElementById('searchWrapper').classList.remove('has-value');
         renderCars();
     }
+    document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+        c.classList.add('active');
+        currentBrand = c.dataset.brand;
+        renderCars();
+    }));
 
-    // ==================== Category Filter ====================
-    document.querySelectorAll('.chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            currentBrand = chip.dataset.brand;
-            renderCars();
-        });
-    });
-
-    // ==================== Modal ====================
-    function openModal(carName) {
-        const car = carsData.find(c => c.name === carName);
+    function openModal(name) {
+        const car = carsData.find(c => c.name === name);
         if (!car) return;
-
-        const market = formatPrice(car.marketPrice);
-        const factory = formatPrice(car.factoryPrice);
+        const m = formatPrice(car.marketPrice);
+        const f = formatPrice(car.factoryPrice);
         const diff = car.marketPrice && car.factoryPrice ? car.marketPrice - car.factoryPrice : null;
-
         document.getElementById('modalTitle').textContent = car.name;
         document.getElementById('modalSubtitle').textContent = car.brandName + ' • ' + car.type;
-
         document.getElementById('modalBody').innerHTML = `
-            <div class="modal-row">
-                <span class="modal-row-label">💰 قیمت بازار</span>
-                <span class="modal-row-value">${market ? market + ' تومان' : 'ناموجود'}</span>
-            </div>
-            <div class="modal-row">
-                <span class="modal-row-label">🏭 قیمت کارخانه</span>
-                <span class="modal-row-value factory">${factory ? factory + ' تومان' : 'ناموجود'}</span>
-            </div>
-            ${diff ? `
-                <div class="modal-row">
-                    <span class="modal-row-label">📈 اختلاف قیمت</span>
-                    <span class="modal-row-value" style="color:#f39c12;">${formatPrice(diff)} تومان</span>
-                </div>
-            ` : ''}
+            <div class="modal-row"><span class="modal-row-label">💰 قیمت بازار</span><span class="modal-row-value">${m ? m + ' تومان' : 'ناموجود'}</span></div>
+            <div class="modal-row"><span class="modal-row-label">🏭 قیمت کارخانه</span><span class="modal-row-value factory">${f ? f + ' تومان' : 'ناموجود'}</span></div>
+            ${diff ? `<div class="modal-row"><span class="modal-row-label">📈 اختلاف</span><span class="modal-row-value" style="color:#f39c12;">${formatPrice(diff)} تومان</span></div>` : ''}
         `;
-
         document.getElementById('modalDivarBtn').href = buildDivarUrl(car.name);
         document.getElementById('modalOverlay').classList.add('show');
     }
+    function closeModal() { document.getElementById('modalOverlay').classList.remove('show'); }
 
-    function closeModal() {
-        document.getElementById('modalOverlay').classList.remove('show');
-    }
-
-    // ==================== Toast ====================
-    let toastTimer;
+    let toastT;
     function showToast(msg) {
         const t = document.getElementById('toast');
         t.textContent = msg;
         t.classList.add('show');
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+        clearTimeout(toastT);
+        toastT = setTimeout(() => t.classList.remove('show'), 2500);
     }
 
-    // ==================== Splash ====================
+    const savedTheme = localStorage.getItem('ariana_theme') || 'dark';
+    if (savedTheme === 'light') document.body.classList.add('light');
+    document.getElementById('themeLabel').textContent = savedTheme === 'light' ? 'حالت روز فعال است' : 'حالت شب فعال است';
+
+    function toggleTheme() {
+        const next = document.body.classList.contains('light') ? 'dark' : 'light';
+        document.body.classList.toggle('light');
+        localStorage.setItem('ariana_theme', next);
+        document.getElementById('themeLabel').textContent = next === 'light' ? 'حالت روز فعال است' : 'حالت شب فعال است';
+        showToast(next === 'light' ? '☀️ حالت روز' : '🌙 حالت شب');
+    }
+
     window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('splash').classList.add('hide');
-        }, 1800);
+        setTimeout(() => document.getElementById('splash').classList.add('hide'), 1500);
     });
 
-    // ==================== Init ====================
     renderCars();
     renderStats();
+    loadPricesFromJSON();
 </script>
 
 </body>
