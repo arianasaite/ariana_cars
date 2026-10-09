@@ -1,0 +1,33 @@
+name: Scrape Bama Prices
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt
+      
+      - name: Run scraper
+        run: cd scraper && python scrape.py
+      
+      - name: Commit changes
+        run: |
+          git config user.email "bot@github.com"
+          git config user.name "Bot"
+          git add data/prices.json
+          git commit -m "Update prices" || exit 0
+          git push
