@@ -1473,33 +1473,59 @@
         renderCars();
     }));
 
-    function openModal(name) {
+       function openModal(name) {
         const car = carsData.find(c => c.name === name);
         if (!car) return;
-        const m = formatPrice(car.marketPrice);
-        const f = formatPrice(car.factoryPrice);
-        const diff = car.marketPrice && car.factoryPrice ? car.marketPrice - car.factoryPrice : null;
-        document.getElementById('modalTitle').textContent = car.name;
-        document.getElementById('modalSubtitle').textContent = car.brandName + ' · ' + car.type;
-        document.getElementById('modalBody').innerHTML = `
-            <div class="modal-row">
-                <span class="modal-row-label">💰 قیمت بازار</span>
-                <span class="modal-row-value">${m ? m + ' تومان' : 'ناموجود'}</span>
-            </div>
-            <div class="modal-row">
-                <span class="modal-row-label">🏭 قیمت کارخانه</span>
-                <span class="modal-row-value factory">${f ? f + ' تومان' : 'ناموجود'}</span>
-            </div>
-            ${diff ? `
-                <div class="modal-row">
-                    <span class="modal-row-label">📈 اختلاف قیمت</span>
-                    <span class="modal-row-value" style="color:var(--gold);">${formatPrice(diff)} تومان</span>
-                </div>
-            ` : ''}
-        `;
-        document.getElementById('modalDivarBtn').href = buildDivarUrl(car.name);
-        document.getElementById('modalOverlay').classList.add('show');
+        
+        const slug = getCarSlug(car);
+        window.location.href = 'car.html?id=' + slug;
     }
+
+    function getCarSlug(car) {
+        const slugMap = {
+            'ری را': 'rira',
+            'تارا اتوماتیک V4': 'tara-auto',
+            'تارا دستی V1': 'tara-auto',
+            'پژو 207 اتوماتیک': 'peugeot-207-auto',
+            'پژو 207 موتور TU3': 'peugeot-207-auto',
+            'دنا پلاس اتوماتیک': 'dena-plus-auto',
+            'دنا پلاس MT6': 'dena-plus-auto',
+            'شاهین اتوماتیک پلاس': 'shahin-auto-plus',
+            'شاهین GL': 'shahin-auto-plus',
+            'کوییک GXR': 'quick-gxr',
+            'کوییک RS': 'quick-gxr',
+            'کوییک S': 'quick-gxr',
+            'ساینا S': 'saina-s',
+            'تیگو 8 پرومکس': 'tiggo-8-pro-max',
+            'هایما S7 پرو': 'haima-s7',
+            'رانا پلاس': 'rana-plus',
+            'سورن (TU5P)': 'soren-tu5',
+            'سورن XU7P': 'soren-tu5',
+            'وانت آریسان': 'arisun',
+            'اطلس اتوماتیک': 'atlas-auto',
+            'اطلس S': 'atlas-auto',
+            'اطلس GL': 'atlas-auto',
+            'اطلس G': 'atlas-auto',
+            'کارون': 'karoon',
+            'زامیاد اکستند EX': 'zamyad-extend',
+            'کیامسی J7': 'kmc-j7',
+            'کیامسی X5': 'kmc-j7',
+            'کیامسی ایگل': 'kmc-j7',
+            'جک J4': 'kmc-j7',
+            'فونیکس FX': 'fownix-fx',
+            'فونیکس Z6 GT': 'fownix-fx',
+            'فونیکس Z8': 'fownix-fx',
+            'تیگو 7 پرو مکس': 'tiggo-7-pro-max',
+            'اکستریم SX': 'exeed-sx',
+            'اکستریم QX': 'exeed-sx',
+            'ام‌وی‌ام X55 پرو': 'x55-pro',
+            'ام‌وی‌ام X77 الیت': 'x77-elite',
+            'ام‌وی‌ام X33 کراس': 'x55-pro',
+            'پارس نوآ P90': 'rana-plus'
+        };
+        return slugMap[car.name] || 'unknown';
+    }
+    
     function closeModal() { document.getElementById('modalOverlay').classList.remove('show'); }
 
     let toastT;
