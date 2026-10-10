@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل مدیریت | Ariana Cars</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+<style>
+    :root {
+        --bg-main: #08060d;
+        --bg-card: #14111e;
+        --bg-card-hover: #1a1527;
+        --bg-input: #12101c;
+        --text-primary: #f0e8d8;
+        --text-secondary: #c8bfa8;
+        --text-muted: #8a8070;
+        --gold: #c9a227;
+        --gold-light: #e8c766;
+        --gold-dark: #8b6914;
+        --green: #4caf50;
+        --red: #e74c3c;
+        --blue: #3498db;
+        --border-gold: rgba(201, 162, 39, 0.25);
+        --border-subtle: rgba(201, 162, 39, 0.1);
+        --font-serif: 'Cormorant Garamond', 'Vazirmatn', serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: Vazirmatn, Tahoma, sans-serif;
+        background: var(--bg-main);
+        color: var(--text-primary);
+        direction: rtl;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ==================== LOGIN ==================== */
+    .login-screen {
+        display: flex; align-items: center; justify-content: center;
+        min-height: 100vh; padding: 20px;
+    }
+    .login-card {
+        background: linear-gradient(145deg, var(--bg-card), #0a0812);
+        border: 1px solid var(--border-gold);
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 400px;
+        width: 100%;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        text-align: center;
+    }
+    .login-logo {
+        width: 80px; height: 80px;
+        border-radius: 50%;
+        border: 2px solid var(--gold);
+        background: radial-gradient(circle at 30% 30%, #2a1e08, #0a0812);
+        margin: 0 auto 20px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 36px; color: var(--gold-light);
+        font-family: var(--font-serif);
+        box-shadow: 0 0 40px rgba(201, 162, 39, 0.4);
+    }
+    .login-title {
+        font-size: 22px;
+        color: var(--gold);
+        font-family: var(--font-serif);
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+    }
+    .login-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+    }
+    .input {
+        width: 100%;
+        padding: 14px 18px;
+        background: var(--bg-input);
+        border: 1px solid var(--border-gold);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: Vazirmatn, sans-serif;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.3s ease;
+        direction: ltr;
+        text-align: left;
+        margin-bottom: 14px;
+    }
+    .input:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+    }
+    .btn {
+        padding: 14px 24px;
+        border-radius: 8px;
+        border: 1px solid var(--border-gold);
+        font-family: Vazirmatn, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        letter-spacing: 0.5px;
+    }
+    .btn.primary {
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        color: #0a0812;
+        border-color: var(--gold-light);
+        width: 100%;
+    }
+    .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201, 162, 39, 0.4); }
+    .btn.secondary {
+        background: var(--bg-card);
+        color: var(--gold);
+    }
+    .btn.secondary:hover { background: var(--bg-card-hover); }
+    .btn.danger {
+        background: rgba(231, 76, 60, 0.15);
+        color: var(--red);
+        border-color: rgba(231, 76, 60, 0.4);
+    }
+    .btn.danger:hover { background: rgba(231, 76, 60, 0.25); }
+    .btn.success {
+        background: rgba(76, 175, 80, 0.15);
+        color: var(--green);
+        border-color: rgba(76, 175, 80, 0.4);
+    }
+    .btn.success:hover { background: rgba(76, 175, 80, 0.25); }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ==================== DASHBOARD ==================== */
+    .dashboard { display: none; }
+    .dashboard.active { display: block; }
+    .dash-header {
+        background: linear-gradient(145deg, var(--bg-card), #0a0812);
+        border: 1px solid var(--border-gold);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .dash-title {
+        font-size: 20px;
+        color: var(--gold);
+        font-family: var(--font-serif);
+        letter-spacing: 2px;
+    }
+    .dash-status {
+        font-size: 12px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        background: rgba(76, 175, 80, 0.15);
+        color: var(--green);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+    .dash-status.offline {
+        background: rgba(231, 76, 60, 0.15);
+        color: var(--red);
+        border-color: rgba(231, 76, 60, 0.3);
+    }
+
+    /* Tabs */
+    .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .tab {
+        padding: 10px 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-gold);
+        border-radius: 8px;
+        color: var(--text-secondary);
+        font-family: Vazirmatn, sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .tab:hover { background: var(--bg-card-hover); border-color: var(--gold); }
+    .tab.active {
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        color: #0a0812;
+        border-color: var(--gold-light);
+        font-weight: 500;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Cards */
+    .card {
+        background: linear-gradient(145deg, var(--bg-card), #0a0812);
+        border: 1px solid var(--border-gold);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 16px;
+    }
+    .card-title {
+        font-size: 16px;
+        color: var(--gold);
+        font-family: var(--font-serif);
+        letter-spacing: 1.5px;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .card-title::before { content: "◆"; font-size: 10px; opacity: 0.7; }
+
+    /* Grid for car items */
+    .cars-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+    }
+    .car-edit-item {
+        background: var(--bg-input);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        padding: 14px;
+        transition: all 0.3s ease;
+    }
+    .car-edit-item:hover { border-color: var(--border-gold); }
+    .car-edit-name {
+        font-size: 13px;
+        color: var(--text-primary);
+        font-weight: 500;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+    }
+    .car-edit-name .edit-icon { color: var(--gold); font-size: 12px; cursor: pointer; }
+    .field-row { margin-bottom: 10px; }
+    .field-label {
+        font-size: 10px;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        display: block;
+    }
+    .field-input {
+        width: 100%;
+        padding: 8px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 6px;
+        color: var(--text-primary);
+        font-family: Vazirmatn, sans-serif;
+        font-size: 12px;
+        outline: none;
+        transition: all 0.3s ease;
+        direction: ltr;
+        text-align: left;
+    }
+    .field-input:focus { border-color: var(--gold); }
+    .field-input.rtl { direction: rtl; text-align: right; }
+
+    /* Alerts */
+    .alert {
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        margin-bottom: 16px;
+        display: none;
+        align-items: center;
+        gap: 10px;
+    }
+    .alert.show { display: flex; }
+    .alert.success { background: rgba(76, 175, 80, 0.15); color: var(--green); border: 1px solid rgba(76, 175, 80, 0.3); }
+    .alert.error { background: rgba(231, 76, 60, 0.15); color: var(--red); border: 1px solid rgba(231, 76, 60, 0.3); }
+    .alert.info { background: rgba(52, 152, 219, 0.15); color: var(--blue); border: 1px solid rgba(52, 152, 219, 0.3); }
+
+    .actions-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+    }
+
+    .help-text {
+        font-size: 11px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-top: 8px;
+    }
+    .help-text a { color: var(--gold); }
+
+    code {
+        background: rgba(201, 162, 39, 0.1);
+        color: var(--gold-light);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 11px;
+        direction: ltr;
+        display: inline-block;
+    }
+
+    @media (max-width: 600px) {
+        .container { padding: 0; }
+        .dash-header { padding: 16px; }
+        .dash-title { font-size: 16px; }
+        .card { padding: 16px; }
+        .cars-grid { grid-template-columns: 1fr; }
+        .login-card { padding: 30px 20px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ==================== LOGIN SCREEN ==================== -->
+<div class="login-screen" id="loginScreen">
+    <div class="login-card">
+        <div class="login-logo">A</div>
+        <div class="login-title">ARIANA ADMIN</div>
+        <div class="login-sub">پنل مدیریت اختصاصی</div>
+
+        <input type="password" class="input" id="passwordInput" placeholder="رمز عبور..." autocomplete="off" />
+        <button class="btn primary" onclick="login()">🔓 ورود</button>
+
+        <div class="help-text" style="margin-top: 16px;">
+            رمز پیش‌فرض: <code>ariana2025</code><br>
+            بعد از ورود، از تب تنظیمات عوضش کن
+        </div>
+
+        <div class="alert error" id="loginError" style="margin-top: 16px;">
+            ⚠️ رمز عبور اشتباه است
+        </div>
+    </div>
+</div>
+
+<!-- ==================== DASHBOARD ==================== -->
+<div class="dashboard container" id="dashboard">
+    <div class="dash-header">
+        <div>
+            <div class="dash-title">◆ پنل مدیریت ARIANA ◆</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 5px;">
+                <span id="githubUser">—</span> · <span id="repoInfo">—</span>
+            </div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <div class="dash-status" id="ghStatus">بررسی...</div>
+            <button class="btn secondary" onclick="logout()" style="padding: 10px 16px; font-size: 12px;">خروج</button>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('prices', this)">💰 قیمت‌ها</button>
+        <button class="tab" onclick="switchTab('details', this)">📝 جزئیات خودروها</button>
+        <button class="tab" onclick="switchTab('images', this)">🖼️ عکس‌ها</button>
+        <button class="tab" onclick="switchTab('actions', this)">🔄 عملیات</button>
+        <button class="tab" onclick="switchTab('settings', this)">⚙️ تنظیمات</button>
+    </div>
+
+    <!-- Alert box -->
+    <div class="alert" id="globalAlert"></div>
+
+    <!-- ========== TAB: PRICES ========== -->
+    <div class="tab-panel active" id="panel-prices">
+        <div class="card">
+            <div class="card-title">💰 ویرایش قیمت‌ها</div>
+            <p class="help-text" style="margin-bottom: 16px;">
+                قیمت‌ها به تومان وارد کن. خالی بذاری، از قیمت پیش‌فرض استفاده می‌شه. تغییرات روی همه‌ی بازدیدکننده‌ها اعمال می‌شه.
+            </p>
+            <div id="pricesEditor" class="cars-grid"></div>
+            <div class="actions-row">
+                <button class="btn success" onclick="saveAllPrices()">💾 ذخیره همه قیمت‌ها</button>
+                <button class="btn secondary" onclick="reloadData()">🔄 بارگذاری مجدد</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TAB: DETAILS ========== -->
+    <div class="tab-panel" id="panel-details">
+        <div class="card">
+            <div class="card-title">📝 ویرایش جزئیات خودروها</div>
+            <p class="help-text" style="margin-bottom: 16px;">
+                برای هر خودرو، عکس (URL)، توضیحات، رنگ‌ها و مشخصات فنی قابل ویرایش است.
+            </p>
+            <div id="detailsEditor"></div>
+            <div class="actions-row">
+                <button class="btn success" onclick="saveAllDetails()">💾 ذخیره همه تغییرات</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TAB: IMAGES ========== -->
+    <div class="tab-panel" id="panel-images">
+        <div class="card">
+            <div class="card-title">🖼️ مدیریت عکس‌ها</div>
+            <p class="help-text" style="margin-bottom: 16px;">
+                برای اضافه کردن عکس، آدرس تصویر (URL) رو وارد کن. می‌تونی از سایت‌های مثل
+                <a href="https://imgur.com" target="_blank" style="color: var(--gold);">Imgur</a> یا
+                <a href="https://postimages.org" target="_blank" style="color: var(--gold);">PostImages</a> استفاده کنی.
+            </p>
+            <div id="imagesEditor"></div>
+            <div class="actions-row">
+                <button class="btn success" onclick="saveAllImages()">💾 ذخیره عکس‌ها</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TAB: ACTIONS ========== -->
+    <div class="tab-panel" id="panel-actions">
+        <div class="card">
+            <div class="card-title">🔄 عملیات سریع</div>
+
+            <p class="help-text" style="margin-bottom: 16px;">
+                این دکمه‌ها GitHub Actions رو اجرا می‌کنن یا سایت رو بازسازی می‌کنن.
+            </p>
+
+            <div class="actions-row">
+                <button class="btn primary" onclick="runScraper()">
+                    🚀 اجرای اسکرپر قیمت‌ها
+                </button>
+                <button class="btn secondary" onclick="checkWorkflowStatus()">
+                    🔍 بررسی وضعیت آخرین اجرا
+                </button>
+                <button class="btn secondary" onclick="openLiveSite()">
+                    🌐 باز کردن سایت
+                </button>
+            </div>
+
+            <div id="workflowStatus" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <!-- ========== TAB: SETTINGS ========== -->
+    <div class="tab-panel" id="panel-settings">
+        <div class="card">
+            <div class="card-title">🔑 GitHub API Token</div>
+            <p class="help-text" style="margin-bottom: 12px;">
+                برای اینکه پنل بتونه فایل‌ها رو توی مخزنت آپدیت کنه، لازمه یه **Personal Access Token** از GitHub داشته باشی.
+            </p>
+            <ol class="help-text" style="padding-right: 20px; line-height: 2;">
+                <li>برو به <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a></li>
+                <li>توی <strong>Note</strong> بنویس: <code>Ariana Admin</code></li>
+                <li>توی <strong>Expiration</strong>: <code>No expiration</code> (یا هر چی می‌خوای)</li>
+                <li>تیک <code>repo</code> رو بزن (فقط همینه کافیه)</li>
+                <li>پایین صفحه، <code>Generate token</code> رو بزن</li>
+                <li>توکن که به شکل <code>ghp_...</code> هست رو کپی کن و اینجا بذار</li>
+            </ol>
+            <input type="password" class="input" id="tokenInput" placeholder="ghp_..." style="margin-top: 16px;" />
+
+            <div class="actions-row">
+                <button class="btn success" onclick="saveToken()">💾 ذخیره Token</button>
+                <button class="btn secondary" onclick="checkToken()">🔍 بررسی اتصال</button>
+                <button class="btn danger" onclick="clearToken()">🗑️ حذف Token</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🔐 تغییر رمز عبور</div>
+            <input type="password" class="input" id="newPassword" placeholder="رمز جدید..." />
+            <input type="password" class="input" id="newPasswordConfirm" placeholder="تکرار رمز جدید..." />
+            <button class="btn primary" onclick="changePassword()">💾 تغییر رمز</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📊 اطلاعات مخزن</div>
+            <div class="field-row">
+                <label class="field-label">GitHub Username</label>
+                <input type="text" class="field-input" id="cfgUser" value="arianasaite" />
+            </div>
+            <div class="field-row">
+                <label class="field-label">Repository Name</label>
+                <input type="text" class="field-input" id="cfgRepo" value="ariana_cars" />
+            </div>
+            <button class="btn secondary" onclick="saveRepoConfig()">💾 ذخیره</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ==================== CONFIG ====================
+    const DEFAULT_PASSWORD_HASH = "6e8b0b3a3df62f9c6c0ef0e2e2b62a3a7d9d8ed44e03b0f05b8f9d5f5c1c1f0f"; // پیش‌فرض: ariana2025
+    const STORAGE_KEYS = {
+        passwordHash: 'ariana_admin_pw',
+        token: 'ariana_admin_token',
+        user: 'ariana_admin_user',
+        repo: 'ariana_admin_repo',
+        loggedIn: 'ariana_admin_loggedin'
+    };
+
+    let carsData = { cars: [] };
+    let pricesData = { cars: {} };
+    let currentToken = '';
+    let currentUser = 'arianasaite';
+    let currentRepo = 'ariana_cars';
+
+    // ==================== HASH FUNCTION ====================
+    async function sha256(text) {
+        const buf = new TextEncoder().encode(text);
+        const hashBuf = await crypto.subtle.digest('SHA-256', buf);
+        return Array.from(new Uint8Array(hashBuf))
+            .map(b => b.toString(16).padStart(2, '0'))
+            .join('');
+    }
+
+    // ==================== LOGIN ====================
+    async function login() {
+        const pw = document.getElementById('passwordInput').value;
+        if (!pw) return;
+
+        const storedHash = localStorage.getItem(STORAGE_KEYS.passwordHash) || DEFAULT_PASSWORD_HASH;
+        const inputHash = await sha256(pw);
+
+        if (inputHash === storedHash) {
+            localStorage.setItem(STORAGE_KEYS.loggedIn, 'true');
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+            init();
+        } else {
+            document.getElementById('loginError').classList.add('show');
+            setTimeout(() => document.getElementById('loginError').classList.remove('show'), 3000);
+        }
+    }
+
+    document.getElementById('passwordInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') login();
+    });
+
+    function logout() {
+        if (confirm('از پنل خارج می‌شی؟')) {
+            localStorage.removeItem(STORAGE_KEYS.loggedIn);
+            location.reload();
+        }
+    }
+
+    // ==================== INIT ====================
+    async function init() {
+        // بررسی ورود
+        if (localStorage.getItem(STORAGE_KEYS.loggedIn) !== 'true') {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('dashboard').classList.remove('active');
+            return;
+        }
+
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('dashboard').classList.add('active');
+
+        // بارگذاری Token
+        currentToken = localStorage.getItem(STORAGE_KEYS.token) || '';
+        currentUser = localStorage.getItem(STORAGE_KEYS.user) || 'arianasaite';
+        currentRepo = localStorage.getItem(STORAGE_KEYS.repo) || 'ariana_cars';
+
+        document.getElementById('cfgUser').value = currentUser;
+        document.getElementById('cfgRepo').value = currentRepo;
+        document.getElementById('githubUser').textContent = '@' + currentUser;
+        document.getElementById('repoInfo').textContent = currentUser + '/' + currentRepo;
+
+        if (!currentToken) {
+            setGhStatus('offline', '❌ توکن تنظیم نشده');
+        } else {
+            checkToken();
+        }
+
+        // بارگذاری داده‌ها
+        await loadData();
+    }
+
+    function setGhStatus(status, text) {
+        const el = document.getElementById('ghStatus');
+        el.textContent = text;
+        el.className = 'dash-status ' + (status === 'online' ? '' : 'offline');
+    }
+
+    function showAlert(msg, type = 'info') {
+        const el = document.getElementById('globalAlert');
+        el.textContent = msg;
+        el.className = 'alert ' + type + ' show';
+        setTimeout(() => el.classList.remove('show'), 5000);
+    }
+
+    // ==================== LOAD DATA ====================
+    async function loadData() {
+        try {
+            // بارگذاری cars-details
+            const detailRes = await fetch('data/cars-details.json?_=' + Date.now());
+            if (detailRes.ok) carsData = await detailRes.json();
+
+            // بارگذاری prices
+            const priceRes = await fetch('data/prices.json?_=' + Date.now());
+            if (priceRes.ok) pricesData = await priceRes.json();
+
+            renderPricesEditor();
+            renderDetailsEditor();
+            renderImagesEditor();
+        } catch (e) {
+            showAlert('خطا در بارگذاری داده‌ها: ' + e.message, 'error');
+        }
+    }
+
+    async function reloadData() {
+        await loadData();
+        showAlert('✅ داده‌ها از نو بارگذاری شد', 'success');
+    }
+
+    // ==================== TABS ====================
+    function switchTab(name, btn) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + name).classList.add('active');
+    }
+
+    // ==================== PRICES EDITOR ====================
+    function renderPricesEditor() {
+        const container = document.getElementById('pricesEditor');
+        const cars = carsData.cars || [];
+
+        if (cars.length === 0) {
+            container.innerHTML = '<p style="color:var(--text-muted);">خودرویی یافت نشد</p>';
+            return;
+        }
+
+        container.innerHTML = cars.map(car => `
+            <div class="car-edit-item">
+                <div class="car-edit-name">
+                    <span>${car.icon || '🚗'} ${car.name}</span>
+                    <span class="edit-icon">✎</span>
+                </div>
+                <div class="field-row">
+                    <label class="field-label">قیمت بازار (تومان)</label>
+                    <input type="number" class="field-input" data-car-id="${car.id}" data-field="marketPrice" value="${car.marketPrice || ''}" placeholder="مثلاً 3500000000" />
+                </div>
+                <div class="field-row">
+                    <label class="field-label">قیمت کارخانه (تومان)</label>
+                    <input type="number" class="field-input" data-car-id="${car.id}" data-field="factoryPrice" value="${car.factoryPrice || ''}" placeholder="مثلاً 2400000000" />
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function saveAllPrices() {
+        const inputs = document.querySelectorAll('#pricesEditor .field-input');
+
+        inputs.forEach(input => {
+            const carId = input.dataset.carId;
+            const field = input.dataset.field;
+            const value = input.value.trim();
+            const car = carsData.cars.find(c => c.id === carId);
+            if (!car) return;
+
+            if (value === '') car[field] = null;
+            else car[field] = parseInt(value, 10);
+        });
+
+        await saveToGitHub('data/cars-details.json', carsData, '💰 ویرایش قیمت‌ها از پنل ادمین');
+    }
+
+    // ==================== DETAILS EDITOR ====================
+    function renderDetailsEditor() {
+        const container = document.getElementById('detailsEditor');
+        const cars = carsData.cars || [];
+
+        if (cars.length === 0) {
+            container.innerHTML = '<p style="color:var(--text-muted);">خودرویی یافت نشد</p>';
+            return;
+        }
+
+        container.innerHTML = cars.map(car => `
+            <div class="car-edit-item" style="margin-bottom: 12px;">
+                <div class="car-edit-name">
+                    <span>${car.icon || '🚗'} ${car.name} <span style="color:var(--text-muted);font-size:10px;">(${car.id})</span></span>
+                </div>
+                <div class="field-row">
+                    <label class="field-label">نام نمایشی</label>
+                    <input type="text" class="field-input rtl" data-car-id="${car.id}" data-field="name" value="${car.name || ''}" />
+                </div>
+                <div class="field-row">
+                    <label class="field-label">برند</label>
+                    <input type="text" class="field-input rtl" data-car-id="${car.id}" data-field="brandName" value="${car.brandName || ''}" />
+                </div>
+                <div class="field-row">
+                    <label class="field-label">نوع</label>
+                    <input type="text" class="field-input rtl" data-car-id="${car.id}" data-field="type" value="${car.type || ''}" />
+                </div>
+                <div class="field-row">
+                    <label class="field-label">آیکون (ایموجی)</label>
+                    <input type="text" class="field-input" data-car-id="${car.id}" data-field="icon" value="${car.icon || ''}" />
+                </div>
+                <div class="field-row">
+                    <label class="field-label">قیمت جهانی (دلار)</label>
+                    <input type="number" class="field-input" data-car-id="${car.id}" data-field="globalPriceUSD" value="${car.globalPriceUSD || ''}" />
+                </div>
+                <div class="field-row">
+                    <label class="field-label">توضیحات</label>
+                    <textarea class="field-input rtl" data-car-id="${car.id}" data-field="description" rows="3" style="resize:vertical;">${car.description || ''}</textarea>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function saveAllDetails() {
+        const inputs = document.querySelectorAll('#detailsEditor .field-input');
+
+        inputs.forEach(input => {
+            const carId = input.dataset.carId;
+            const field = input.dataset.field;
+            const value = input.value.trim();
+            const car = carsData.cars.find(c => c.id === carId);
+            if (!car) return;
+
+            if (field === 'globalPriceUSD') {
+                car[field] = value === '' ? null : parseInt(value, 10);
+            } else {
+                car[field] = value;
+            }
+        });
+
+        await saveToGitHub('data/cars-details.json', carsData, '📝 ویرایش جزئیات از پنل ادمین');
+    }
+
+    // ==================== IMAGES EDITOR ====================
+    function renderImagesEditor() {
+        const container = document.getElementById('imagesEditor');
+        const cars = carsData.cars || [];
+
+        if (cars.length === 0) {
+            container.innerHTML = '<p style="color:var(--text-muted);">خودرویی یافت نشد</p>';
+            return;
+        }
+
+        container.innerHTML = cars.map(car => `
+            <div class="car-edit-item" style="margin-bottom: 12px;">
+                <div class="car-edit-name">
+                    <span>${car.icon || '🚗'} ${car.name}</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 100px 1fr; gap: 12px; align-items: start;">
+                    <div style="width: 100px; height: 70px; border: 1px solid var(--border-subtle); border-radius: 6px; background: #0d0a16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        ${car.image ? `<img src="${car.image}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='❌'">` : '<span style="font-size:24px;opacity:0.4;">' + (car.icon || '🚗') + '</span>'}
+                    </div>
+                    <div>
+                        <label class="field-label">آدرس عکس (URL)</label>
+                        <input type="text" class="field-input" data-car-id="${car.id}" data-field="image" value="${car.image || ''}" placeholder="https://..." />
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function saveAllImages() {
+        const inputs = document.querySelectorAll('#imagesEditor .field-input');
+
+        inputs.forEach(input => {
+            const carId = input.dataset.carId;
+            const car = carsData.cars.find(c => c.id === carId);
+            if (car) car.image = input.value.trim();
+        });
+
+        await saveToGitHub('data/cars-details.json', carsData, '🖼️ ویرایش عکس‌ها از پنل ادمین');
+    }
+
+    // ==================== SAVE TO GITHUB ====================
+    async function saveToGitHub(path, data, message) {
+        if (!currentToken) {
+            showAlert('❌ اول باید GitHub Token تنظیم کنی', 'error');
+            switchTab('settings', document.querySelectorAll('.tab')[4]);
+            return;
+        }
+
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = '⏳ در حال ذخیره...';
+
+        try {
+            // ۱. گرفتن SHA فعلی فایل
+            const getUrl = `https://api.github.com/repos/${currentUser}/${currentRepo}/contents/${path}`;
+            const getRes = await fetch(getUrl, {
+                headers: {
+                    'Authorization': 'token ' + currentToken,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            let sha = null;
+            if (getRes.ok) {
+                const fileData = await getRes.json();
+                sha = fileData.sha;
+            }
+
+            // ۲. آپلود فایل جدید (base64)
+            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            const putRes = await fetch(getUrl, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': 'token ' + currentToken,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message,
+                    content: content,
+                    sha: sha
+                })
+            });
+
+            if (!putRes.ok) {
+                const errData = await putRes.json();
+                throw new Error(errData.message || 'خطا در ذخیره');
+            }
+
+            showAlert('✅ تغییرات با موفقیت ذخیره شد! سایت تا ۱ دقیقه دیگه آپدیت می‌شه.', 'success');
+
+            // ۳. اجرای GitHub Pages برای rebuild
+            setTimeout(() => {
+                showAlert('🔄 GitHub Pages در حال rebuild...', 'info');
+            }, 2000);
+
+        } catch (e) {
+            showAlert('❌ خطا: ' + e.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = originalText;
+        }
+    }
+
+    // ==================== TOKEN ====================
+    function saveToken() {
+        const token = document.getElementById('tokenInput').value.trim();
+        if (!token) {
+            showAlert('توکن رو وارد کن', 'error');
+            return;
+        }
+        localStorage.setItem(STORAGE_KEYS.token, token);
+        currentToken = token;
+        checkToken();
+    }
+
+    async function checkToken() {
+        if (!currentToken) {
+            setGhStatus('offline', '❌ توکن تنظیم نشده');
+            return;
+        }
+
+        try {
+            const res = await fetch('https://api.github.com/user', {
+                headers: { 'Authorization': 'token ' + currentToken }
+            });
+
+            if (res.ok) {
+                const user = await res.json();
+                setGhStatus('online', '✅ متصل: @' + user.login);
+                showAlert('✅ اتصال به GitHub برقرار شد', 'success');
+            } else {
+                setGhStatus('offline', '❌ توکن نامعتبر');
+                showAlert('❌ توکن نامعتبر یا منقضی شده', 'error');
+            }
+        } catch (e) {
+            setGhStatus('offline', '❌ خطای اتصال');
+        }
+    }
+
+    function clearToken() {
+        if (!confirm('توکن حذف بشه؟')) return;
+        localStorage.removeItem(STORAGE_KEYS.token);
+        currentToken = '';
+        document.getElementById('tokenInput').value = '';
+        setGhStatus('offline', '❌ توکن حذف شد');
+    }
+
+    // ==================== PASSWORD ====================
+    async function changePassword() {
+        const newPw = document.getElementById('newPassword').value;
+        const confirmPw = document.getElementById('newPasswordConfirm').value;
+
+        if (!newPw || newPw.length < 6) {
+            showAlert('رمز جدید باید حداقل ۶ کاراکتر باشه', 'error');
+            return;
+        }
+        if (newPw !== confirmPw) {
+            showAlert('رمزهای جدید یکسان نیستن', 'error');
+            return;
+        }
+
+        const hash = await sha256(newPw);
+        localStorage.setItem(STORAGE_KEYS.passwordHash, hash);
+        document.getElementById('newPassword').value = '';
+        document.getElementById('newPasswordConfirm').value = '';
+        showAlert('✅ رمز عبور با موفقیت تغییر کرد', 'success');
+    }
+
+    // ==================== REPO CONFIG ====================
+    function saveRepoConfig() {
+        currentUser = document.getElementById('cfgUser').value.trim();
+        currentRepo = document.getElementById('cfgRepo').value.trim();
+        localStorage.setItem(STORAGE_KEYS.user, currentUser);
+        localStorage.setItem(STORAGE_KEYS.repo, currentRepo);
+        document.getElementById('githubUser').textContent = '@' + currentUser;
+        document.getElementById('repoInfo').textContent = currentUser + '/' + currentRepo;
+        showAlert('✅ اطلاعات مخزن ذخیره شد', 'success');
+    }
+
+    // ==================== ACTIONS ====================
+    async function runScraper() {
+        if (!currentToken) {
+            showAlert('❌ اول توکن تنظیم کن', 'error');
+            return;
+        }
+
+        const btn = event.target;
+        btn.disabled = true;
+        btn.textContent = '⏳ در حال اجرا...';
+
+        try {
+            const url = `https://api.github.com/repos/${currentUser}/${currentRepo}/actions/workflows/scrape-prices.yml/dispatches`;
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'token ' + currentToken,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ref: 'main' })
+            });
+
+            if (res.ok) {
+                showAlert('🚀 اسکرپر با موفقیت اجرا شد! ۵ دقیقه دیگه چک کن.', 'success');
+            } else {
+                const err = await res.json();
+                showAlert('❌ خطا: ' + (err.message || 'نمی‌تونم اجرا کنم'), 'error');
+            }
+        } catch (e) {
+            showAlert('❌ خطا: ' + e.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = '🚀 اجرای اسکرپر قیمت‌ها';
+        }
+    }
+
+    async function checkWorkflowStatus() {
+        if (!currentToken) return;
+
+        try {
+            const url = `https://api.github.com/repos/${currentUser}/${currentRepo}/actions/runs?per_page=5`;
+            const res = await fetch(url, {
+                headers: { 'Authorization': 'token ' + currentToken }
+            });
+
+            if (!res.ok) throw new Error('خطا در دریافت وضعیت');
+
+            const data = await res.json();
+            const runs = data.workflow_runs || [];
+
+            const html = runs.map(run => {
+                const statusIcon = run.status === 'completed'
+                    ? (run.conclusion === 'success' ? '✅' : '❌')
+                    : '🟡';
+                const date = new Date(run.created_at).toLocaleString('fa-IR');
+                return `
+                    <div style="padding: 10px; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                        <span>${statusIcon} ${run.name}</span>
+                        <span style="color: var(--text-muted); font-size: 11px;">${date}</span>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('workflowStatus').innerHTML = `
+                <div class="card-title" style="margin-top: 20px;">📋 آخرین اجراها</div>
+                ${html || '<p style="color:var(--text-muted);">چیزی یافت نشد</p>'}
+            `;
+        } catch (e) {
+            showAlert('❌ خطا: ' + e.message, 'error');
+        }
+    }
+
+    function openLiveSite() {
+        window.open(`https://${currentUser}.github.io/${currentRepo}/`, '_blank');
+    }
+
+    // ==================== INIT ON LOAD ====================
+    init();
+</script>
+
+</body>
+</html>
